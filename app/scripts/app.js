@@ -8,14 +8,14 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
             .state('app', {
                 url:'/',
                 views: {
-                    'header': {
-                        template : ''
+                    'header@': {
+                        templateUrl : 'views/header.html'
                     },
-                    'content@': {
+                    'content': {
                         templateUrl : 'views/login.html',
                         controller  : 'LoginController'                  
                     },
-                    'footer@': {
+                    'footer': {
                         templateUrl : 'views/footer.html'
                     }
                 }
@@ -37,6 +37,15 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
 
             })
 
+            .state('app.registration', {
+                url:'/registration',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/registration/register.html'  
+                    }
+                }
+
+            })
 ;
     
         $urlRouterProvider.otherwise('/');

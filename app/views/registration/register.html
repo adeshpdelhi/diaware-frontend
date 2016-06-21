@@ -1,34 +1,98 @@
-
-   
-
-<div>
+<style>
+    p {
+        font-size: 22px;
+        font-weight: bold;
+        font-style: italic;
+        color: rgb(62, 62, 62);
+        margin: 18px;
+    }
+    ul {
+        float: left;
+        border-radius: 5px;
+        border: solid 1px rgb(198, 198, 198);
+        padding: 7px 11px;
+        background-color: rgb(248,248,248);
+    }
+    li {
+        float: left;
+        background-color: rgb(200,200,200);
+        padding: 5px 19px;
+        margin: 5px 2px 5px 0px;
+        color: black;
+        list-style: none;
+    }
+    li:hover, li:hover a {
+        background-color: rgb(6,179,6);
+        color:white;
+    }
+    li a {
+        text-decoration: none;
+        color: white;
+        font-size: 21px;
+        font-style: italic;
+        text-shadow: 1px 0px 3px rgb(157, 157, 157);
+    }
+    li:nth-child(1) { border-radius: 4px 0px 0px 4px; margin-left: 1px;}
+    li:nth-child(3) { border-radius: 0px 4px 4px 0px;}
+    .active {
+        background-color: rgb(6,179,6);
+    }
+</style>
+<div class="regclass">
 		
-            <div class="row row-content">
-				<div class="col-xs-12 col-sm-8">
-                <h2>Registration</h2>
-                    <br><br>
-                    
-                    
+            <div class="row row-content" ng-init= "tab=1">
+				<div class="col-sm-8 col-sm-offset-2">
+                
+     <section>
+        <ul ng-init="tab = 1">
+            <li ng-class="{active:tab===1}"> 
+                <a href ng-click="tab = 1">Basic Details</a>    
+            </li>
+            <li ng-class="{active:tab===2}"> 
+                <a href ng-click="tab = 2">Panel</a> 
+            </li>
+            <li ng-class="{active:tab===3}"> 
+                <a href ng-click="tab = 3">Medical history</a> 
+            </li>
+            <li ng-class="{active:tab===4}"> 
+                <a href ng-click="tab = 4">Clinical Events</a> 
+            </li>
+            <li ng-class="{active:tab===5}"> 
+                <a href ng-click="tab = 5">Other Details</a> 
+            </li>
+            <br><br>
+            <p ng-show="tab == 1"> <div ng-include="'views/registration/basic_details.html'" ng-show="tab === 1"></div> </p>
+            <p ng-show="tab == 2"> <div ng-include="'views/registration/panel.html'" ng-show="tab === 2"></div> </p>
+            <p ng-show="tab == 3"> <div ng-include="'views/registration/medical_history.html'" ng-show="tab === 3"></div></p>
+            <p ng-show="tab == 4"> <div ng-include="'views/registration/clinical_events.html'" ng-show="tab === 4"></div></p>
+            <p ng-show="tab == 5"> <div ng-include="'views/registration/others.html'" ng-show="tab === 5"></div></p>
+
+        </ul>       
+    </section>
+                </div>
+            </div>
+</div>
+        <!--            
                      <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active" width: 100%>
-                    <a href="#basic_details" aria-controls="peter"
-                     role="tab" data-toggle="tab">Basic Details</a></li>
+                    <a  aria-controls="peter"
+                     role="tab" data-toggle="tab" ng-class="{active:tab===1}" ng-click= "tab=1">Basic Details</a></li>
 					 
-                    <li role="presentation"><a href="#panel"
+                    <li role="presentation"><a 
                      aria-controls="danny" role="tab"
-                     data-toggle="tab">Panel</a></li>
+                     data-toggle="tab" ng-class="{active:tab===2}" ng-click= "tab=2">Panel</a></li>
 					 
-                    <li role="presentation"><a href="medical_history"
+                    <li role="presentation"><a
                      aria-controls="agumbe" role="tab"
-                     data-toggle="tab">Medical history</a></li>
+                     data-toggle="tab" ng-class="{active:tab===3}" ng-click= "tab=3">Medical history</a></li>
 					 
-                    <li role="presentation"><a href="#clinical_events"
+                    <li role="presentation"><a 
                      aria-controls="alberto" role="tab"
-                     data-toggle="tab">Clinical Events</a></li>
+                     data-toggle="tab" ng-class="{active:tab===4}" ng-click= "tab=4">Clinical Events</a></li>
 					 
-					  <li role="presentation"><a href="#other_details"
+					  <li role="presentation"><a 
                      aria-controls="alberto" role="tab"
-                     data-toggle="tab">Other Details</a></li>
+                     data-toggle="tab" ng-class="{active:tab===5}" ng-click= "tab=5">Other Details</a></li>
                 </ul>
                     
                     
@@ -36,11 +100,11 @@
                     
                     
                   <div class="tab-content"> 
-                      <div role="tabpanel" class="tab-pane fade in active" id="basic_details">
+                      <div role="tabpanel" class="tab-pane fade in active" id="basic_details" ng-show="tab === 1">
                 <div class="row row-content">
             <div class="col-xm-12 col-sm-10">
 			
-			<div ng-include="'register.html'"></div>            
+			<div ng-include="'./basic_details.html'"></div>            
                 
             </div>
            
@@ -55,7 +119,7 @@
                           
                 </div>
 				
-				<div role="tabpanel" class="tab-pane fade" id="panel">
+				<div role="tabpanel" class="tab-pane fade" id="panel" ng-show="tab === 2">
 				< <div class="row row-content">
             <div class="col-xm-12 col-sm-10">
 			
@@ -70,13 +134,13 @@
 								
 								
 			
-			<div role="tabpanel" class="tab-pane fade" id="medical_history">
+			<div role="tabpanel" class="tab-pane fade" id="medical_history" ng-show="tab === 3">
 
 				
 				 <div class="row row-content">
             <div class="col-xm-12 col-sm-10">
 			
-			<div ng-include="'Medical_history.html'"></div>  
+			<div ng-include="'medical_history.html'"></div>  
                 
             </div>
            
@@ -87,7 +151,7 @@
 			
 			
 			
-			<div role="tabpanel" class="tab-pane fade" id="clinical_events">
+			<div role="tabpanel" class="tab-pane fade" id="clinical_events" ng-show="tab === 4">
 
 				 <div class="row row-content">
             <div class="col-xm-12 col-sm-10">
@@ -106,7 +170,7 @@
 			
 			
 			
-			<div role="tabpanel" class="tab-pane fade" id="other_details">
+			<div role="tabpanel" class="tab-pane fade" id="other_details" ng-show="tab === 5">
 
 				 <div class="row row-content">
             <div class="col-xm-12 col-sm-10">
@@ -133,7 +197,7 @@
 
 
 
-
+-->
 
 
 
