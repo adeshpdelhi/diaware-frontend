@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    <title>Pre Dialysis Sheet</title>
+        <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
+
+
+</head>
+
+<body style= "background-color:#000000;">
+
+<div class="container-fluid">
+    <div id="Registerbox" style="margin-top:50px;" class="mainbox col-sm-10 col-sm-offset-1">                    
+        <div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title"><b>Register Patient</b></div>
+			</div>     
+
+			<div style=" padding-top:30px; padding-left:40px;" class="panel-body bg-warning">	
+			<form class="form-horizontal" role="form">
+				
+				<h4 style= "padding-left:20px; padding-bottom:20px;"><b>Basic Details</b></h4>
+				<div class="row">
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Date</label>                        
+						<div class="col-sm-8">
+							<input required type="text" class="form-control" id="date" name="date">
+						</div>
+					</div>
+				
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Name</label>                        
+						<div class="col-sm-8">
+							<input required type="text" class="form-control" id="name" name="name">
+						</div>
+					</div>
+					 
+					 
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">ID</label>
+						<div class="col-sm-8">
+							<input  required type="number" class="form-control" id="id" name="id">
+						</div>
+					</div>
+
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Age</label>
+						<div class="col-sm-8">
+							<input required type="number" class="form-control" id="age" name="age">
+						</div>
+					</div>
+
+					
+					
+				 
+				</div>
+				
+				<div class="row">
+				
+					<div class="form-group col-sm-3">
+                        <label class="col-sm-4 control-label">Gender</label>
+                         <div class="col-sm-8">
+                            <select name="gender" required class="form-control">
+                                <option disabled value="" selected></option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Machine#</label>                        
+						<div class="col-sm-8">
+							<input required type="text" class="form-control" id="machine_no" name="machine_no">
+						</div>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Bed#</label>                        
+						<div class="col-sm-8">
+							<input required type="text" class="form-control" id="bed_no" name="bed_no">
+						</div>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Technician Name</label>               
+						<div class="col-sm-8">
+							<input required type="text" class="form-control" id="technician_name" name="technician_name">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+	
+					
+					<div class="form-group col-sm-3">
+						<label class="col-sm-5 control-label">Prescribed Duration</label>                        
+						<div class="col-sm-7">
+							<input required type="text" class="form-control" id="prescribed_duration" name="prescribed_duration">
+						</div>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Start Time</label>                        
+						<div class="col-sm-8">
+							<input required type="text" class="form-control" id="start_time" name="start_time">
+						</div>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">End Time</label>                        
+						<div class="col-sm-8">
+							<input required type="text" class="form-control" id="end_time" name="end_time">
+						</div>
+					</div>
+				
+				</div>
+				
+
+				<div class="row">
+				<hr>
+				<h4 style= "padding-left:40px; padding-bottom:20px;"><b>Pre Dialysis Details</b></h4>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Dialyzer Name</label>                        
+						<div class="col-sm-8">
+							<input required type="text" class="form-control" id="dialyzer_name" name="dialyzer_name">
+						</div>
+					</div>
+				<div class="form-group col-sm-3">
+					<label class="col-sm-4 control-label">Dialyzer Type: </label>
+					<div class="col-sm-8">
+						<label class="radio-inline">
+						<input type="radio" name="dialyzer_type" value="new">Reuse</label>
+						<label class="radio-inline">
+						<input type="radio" name="dialyzer_type" value="reuse">New</label>
+					</div>
+				</div>
+				<div class="form-group col-sm-3">
+                        <label class="col-sm-4 control-label">Access Used</label>
+                         <div class="col-sm-8">
+                            <select name="access_used" required class="form-control">
+                                <option disabled value="" selected></option>
+                                <option value="central_line">Central Line</option>
+                                <option value="ij">IJ</option>
+								<option value="femoral">Femoral</option>
+                                <option value="fistula">Fistula</option>
+                            </select>
+                        </div>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="col-sm-4 control-label">Central Line Created?</label>
+					<div class="col-sm-8">
+						<label class="radio-inline">
+						<input type="radio" name="central_line_created" value="yes">Yes</label>
+						<label class="radio-inline">
+						<input type="radio" name="central_line_created" value="no">No</label>
+						<label class="radio-inline">
+						<input type="radio" name="central_line_created_dropdown" value="ij">IJ</label>
+						<label class="radio-inline">
+						<input type="radio" name="central_line_created_dropdown" value="femoral">Femoral</label>
+					</div>
+				</div>
+				</div>
+				<div class="row">
+				<div class="form-group col-sm-3">
+					<label class="col-sm-5 control-label">Anticoagulant</label>
+					<div class="col-sm-7">
+						<label class="radio-inline">
+						<input type="radio" name="anticoagulant" value="yes">Yes</label>
+						<label class="radio-inline">
+						<input type="radio" name="anticoagulant" value="no">No</label>
+					</div>
+				</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Bolus Amount</label>                        
+						<div class="col-sm-8">
+							<input required type="number" class="form-control" id="bolus_amount" name="bolus_amount">
+						</div>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Hourly Heparin</label>
+						<div class="col-sm-8">
+							<input required type="number" class="form-control" id="hourly_heparin" name="hourly_heparin">
+						</div>
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Heparin Stop Before</label>       
+						<div class="col-sm-8">
+							<input required type="text" class="form-control" id="heparin_stop_before" name="heparin_stop_before">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				<div class="form-group col-sm-4">
+						<label class="col-sm-6 control-label">N.S. Flushing Frequeny</label>                        
+						<div class="col-sm-6">
+							<input required type="number" class="form-control" id="ns_flushing_frequency" name="ns_flushing_frequency">
+						</div>
+					</div>
+					<div class="form-group col-sm-4">
+						<label class="col-sm-6 control-label">N.S. Flushing Volume</label>
+						<div class="col-sm-6">
+							<input required type="number" class="form-control" id="ns_flushing_volume" name="ns_flushing_volume">
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+				<hr>
+				<h4 style= "padding-left:40px; padding-bottom:20px;"><b>Machine Preparation</b></h4>
+				<div class="form-group col-sm-3">
+					<label class="col-sm-5 control-label">Machine Test Passed?</label>
+					<div class="col-sm-7">
+						<label class="radio-inline">
+						<input type="radio" name="machine_test_passed" value="yes">Yes</label>
+						<label class="radio-inline">
+						<input type="radio" name="machine_test_passed" value="no">No</label>
+					</div>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="col-sm-4 control-label">Checked By: </label>                        
+					<div class="col-sm-8">
+						<input required type="text" class="form-control" id="checked_by" name="checked_by">
+					</div>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="col-sm-5 control-label">Air Detector/Line Clamp</label>
+					<div class="col-sm-7">
+						<label class="radio-inline">
+						<input type="radio" name="air_detector_or_line_clamp" value="yes">Yes</label>
+						<label class="radio-inline">
+						<input type="radio" name="air_detector_or_line_clamp" value="no">No</label>
+					</div>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="col-sm-4 control-label">Alarm Limits</label>
+					<div class="col-sm-8">
+						<label class="radio-inline">
+						<input type="radio" name="alarm_limits" value="yes">Yes</label>
+						<label class="radio-inline">
+						<input type="radio" name="alarm_limits" value="no">No</label>
+					</div>
+				</div>
+				</div>
+				<div class="row">
+				<div class="form-group col-sm-3">
+					<label class="col-sm-4 control-label">Dialyzate Flow Rate</label>
+					 <div class="col-sm-8">
+						<select name="dialyzate_flow_rate" required class="form-control">
+							<option disabled value="" selected></option>
+							<option value="300">300 ml/min</option>
+							<option value="500">500 ml/min</option>
+							<option value="800">800 ml/min</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="col-sm-4 control-label">Dialysate Counter Current Flow</label>
+					<div class="col-sm-8">
+						<label class="radio-inline">
+						<input type="radio" name="dialysate_counter_current_flow" value="yes">Yes</label>
+						<label class="radio-inline">
+						<input type="radio" name="dialysate_counter_current_flow" value="no">No</label>
+					</div>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="col-sm-5 control-label">Dialyzate Temperature</label>
+					 <div class="col-sm-7">
+						<select name="dialyzate_temperature" required class="form-control">
+							<option disabled value="" selected></option>
+							<option value="35">35 &deg;C</option>
+							<option value="35.5">35.5 &deg;C</option>
+							<option value="36">36 &deg;C</option>
+							<option value="36.5">36.5 &deg;C</option>
+							<option value="37">37 &deg;C</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-sm-3">
+					<label class="col-sm-5 control-label">Conductivity</label>
+					 <div class="col-sm-7">
+						<select name="conductivity" required class="form-control">
+							<option disabled value="" selected></option>
+							<option value="13.8">13.8 mS/cm</option>
+							<option value="13.9">13.9 mS/cm</option>
+							<option value="14">14 mS/cm</option>
+							<option value="14.1">14.1 mS/cm</option>
+							<option value="14.2">14.2 mS/cm</option>
+							<option value="14.3">14.3 mS/cm</option>
+						</select>
+					</div>
+				</div>
+				</div>
+				<div class="row">
+				<div class="form-group col-sm-4">
+					<label class="col-sm-5 control-label">Part A Concentration Combination</label>
+					 <div class="col-sm-7">
+						<select name="part_a_concentration_combination" required class="form-control">
+							<option disabled value="" selected></option>
+							<option value="35">35</option>
+							<option value="35.5">35.5</option>
+							<option value="36">36</option>
+							<option value="36.5">36.5</option>
+							<option value="37">37</option>
+						</select>
+					</div>
+				</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-10 col-sm-2">
+						<button type="submit" class="btn btn-primary">Proceed</button>
+					</div>
+                </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>		         
+</body>
+</html>

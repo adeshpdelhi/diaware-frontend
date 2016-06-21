@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    <title>Medical History</title>
+        <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
+
+
+</head>
+
+<body style= "background-color:#000000;">
+
+<div class="row row-content">
+     <div id="Registerbox" style="margin-top:50px;" class="mainbox col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title"><b>Medical History</b></div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body bg-warning" >
+           
+            
+                
+                 <form class="form-horizontal" role="form">
+                     
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Name</label>                        
+                        <div class="col-sm-8">
+                            <input required type="text" class="form-control" id="name" name="name" placeholder="Enter Name" >
+                        </div>
+                    </div>
+            
+                     
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">ID Number</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="id_number" name="id_number" placeholder="Enter ID number">
+                        </div>
+                    </div>
+                     
+                     
+<div class="form-group">
+<label class="col-sm-2 control-label">Diabetes</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="diabetes_radio" value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="diabetes_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="diabetes_comments" name="diabetes_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	                     
+<div class="form-group">
+<label class="col-sm-2 control-label">Hypertension</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="hypertension_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="hypertension_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="hypertension_comments" name="hypertension_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Coronary Artery Disease</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="coronary_artery_disease_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="coronary_artery_disease_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="coronary_artery_disease_radio_comments" name="coronary_artery_disease_radio_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Peripheral Neuropathy</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="peripheral_neuropathy_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="peripheral_neuropathy_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="peripheral_neuropathy_comments" name="peripheral_neuropathy_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Ratinopathy/Vision</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="ratinopathy/vision_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="ratinopathy/vision_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="ratinopathy/vision_comments" name="ratinopathy/vision_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Cerebrovascular Disease</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="cerebrovascular_disease_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="cerebrovascular_disease_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="cerebrovascular_disease_comments" name="cerebrovascular_disease_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Respiratory Disease</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="respiratory_disease_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="respiratory_disease_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label">Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="respiratory_disease_comments" name="respiratory_disease_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Malignancy</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="malignancy_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="malignancy_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="malignancy_comments" name="malignancy_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Haemoglobinopathy</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="haemoglobinopathy_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="haemoglobinopathy_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="haemoglobinopathy_comments" name="haemoglobinopathy_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Peripheral Vascular Disease</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="peripheral_vascular_disease_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="peripheral_vascular_disease_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="peripheral_vascular_disease_comments" name="peripheral_vascular_disease_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Hepatitis B</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="hepatitis_b_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="hepatitis_b_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="hepatitis_b_comments" name="hepatitis_b_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Hepatitis C</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="hepatitis_c_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="hepatitis_c_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="hepatitis_c_comments" name="hepatitis_c_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">HIV</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="hiv_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="hiv_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="hiv_comments" name="hiv_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Malnutrition</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="malnutrition_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="malnutrition_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="malnutrition_comments" name="malnutrition_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Drug alergy</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="drug_alergy_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="drug_alergy_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="drug_alergy_comments" name="drug_alergy_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+	
+	
+	
+	<div class="form-group">
+<label class="col-sm-2 control-label">Others</label>
+   <div class="col-sm-2">
+    <label class="radio-inline">
+      <input type="radio" name="others_radio"  value="yes">Yes
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="others_radio"  value="no">No
+    </label>
+       </div>
+    <div class="col-sm-6">
+         <label class="col-sm-3 control-label"> Comments</label>
+        <div class="col-sm-9">
+        <input required type="text" class="form-control" id="others_comments" name="others_comments" placeholder="Comments">
+        </div>
+    </div>
+
+    </div>
+                     
+                     <div class="col-sm-12 controls">
+                                      <center><a id="medical_history_save" href="#" class="btn btn-success">Save</a></center>
+                                      
+                                    </div>
+	
+	
+                     
+                     
+                     
+                
+                    
+                
+               </form>
+                </div>
+         </div>
+    </div>
+    
+                
+                
+    </div>
+    </body>
+</html>
