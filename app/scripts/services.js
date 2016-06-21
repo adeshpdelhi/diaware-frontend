@@ -87,6 +87,31 @@ angular.module('confusionApp')
     }
 }])
 
+.factory('authorize', [function () {
+    var users =  [
+      {
+        username: "rishabh",
+        password : "12345",
+        centres : ["JP","CH"]
+      },
+      {
+        username: "admin",
+        password : "admin",
+        centres : ["JP","CH","AP","SP"]
+      }
+    ];
+    return {
+      doAuth : function(username,password){
+        for(var i=0;i<users.length;i++){
+          if(users[i].username == username && users[i].password == password){
+              return users[i].centres;
+          }
+        }
+      return false;
+      }
+    }
+}])
+
 .factory('AuthFactory', ['$resource', '$http', '$localStorage', '$rootScope', '$window', 'baseURL', 'ngDialog', function($resource, $http, $localStorage, $rootScope, $window, baseURL, ngDialog){
     
     var authFac = {};
