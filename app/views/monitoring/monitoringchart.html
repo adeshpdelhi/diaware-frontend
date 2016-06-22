@@ -39,11 +39,9 @@
     }
 </style>
 <div id="regclass">
-		
-            <div class="row row-content" ng-init= "tab=1">
-				<div class="col-sm-8 col-sm-offset-1">
-                
-     <section>
+
+<div class="row row-content" ng-init= "tab=1">
+	<div class="col-sm-6 col-sm-offset-1">
         <ul ng-init="tab = 1">
             <li ng-class="{active:tab===1}"> 
                 <a href ng-click="tab = 1">Pre Dialysis</a>    
@@ -59,7 +57,7 @@
             <p ng-show="tab == 2"> <div ng-include="'views/monitoring/intradialysis.html'" ng-show="tab === 2"></div> </p>
             <p ng-show="tab == 3"> <div ng-include="'views/monitoring/postdialysis.html'" ng-show="tab === 3"></div></p>
         </ul>       
-    </section>
+
     </div>
 </div>
 </div>
