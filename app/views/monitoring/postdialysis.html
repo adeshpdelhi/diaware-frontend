@@ -40,7 +40,7 @@
         <div class="form-group">
                       <label class="col-sm-3 control-label">BP (siting)</label>
                        <div class="col-sm-8" >
-          <select>                    
+          <select id="bp_sitting" name="bp_sitting">                    
               <option ng-repeat="n in [].constructor(51) track by $index"  >{{5*$index}}</option>
                       </select>
                       </div>
@@ -50,7 +50,7 @@
        <div class="form-group">
                     <label class="col-sm-3 control-label">BP (standing)</label>
                      <div class="col-sm-8" >
-        <select>                    
+        <select id="bp_standing" name="bp_standing">                    
             <option ng-repeat="n in [].constructor(51) track by $index"  >{{5*$index}}</option>
                     </select>
                     </div>
