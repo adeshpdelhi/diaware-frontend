@@ -122,6 +122,11 @@ angular.module('confusionApp')
       },
       isLoggedIn : function(){
         return logged_in;
+      },
+      logout : function(){
+        logged_in=false;
+        logged_in_user='';
+        $localStorage.store('username','');
       }
     };
 }])

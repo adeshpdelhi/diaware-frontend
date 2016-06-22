@@ -38,6 +38,10 @@ angular.module('confusionApp')
     $scope.loggedIn = authorize.isLoggedIn();
     $scope.username = authorize.getUsername();
     console.log($scope.loggedIn+" "+$scope.username);
+    $scope.logout = function(){
+        authorize.logout();
+        $state.go('app.login');
+    }
 }])
 
 ;
