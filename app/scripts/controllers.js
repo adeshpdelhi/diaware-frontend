@@ -18,24 +18,26 @@ angular.module('confusionApp')
         }
     };
     $scope.chooseCentre = function(){
-        console.log("changing state");
         $state.go('app.home');
+        console.log("moving to home");
     };
 
 }])
 
-.controller('HomeController', ['$scope', 'ngDialog', '$localStorage', 'AuthFactory', function ($scope, ngDialog, $localStorage, AuthFactory) {
-    
-    $scope.register={};
-    $scope.loginData={};
-    
-    $scope.doRegister = function() {
-        console.log('Doing registration', $scope.registration);
-
-        AuthFactory.register($scope.registration);
-        
-        ngDialog.close();
-
-    };
+.controller('HomeManagementController', ['$scope', '$state', 'authorize', function ($scope, $state, authorize) {
+    if(authorize.isLoggedIn() === true)
+        $state.go('app.home');
+    else
+        $state.go('app.login');
 }])
+
+.controller('HeaderController', ['$scope', '$state', 'authorize', function ($scope, $state, authorize) {
+    $scope.stateis = function(curstate) {
+       return $state.is(curstate);  
+    };
+    $scope.loggedIn = authorize.isLoggedIn();
+    $scope.username = authorize.getUsername();
+    console.log($scope.loggedIn+" "+$scope.username);
+}])
+
 ;

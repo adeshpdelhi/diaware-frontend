@@ -8,12 +8,12 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
             .state('app', {
                 url:'/',
                 views: {
-                    'header@': {
-                        templateUrl : 'views/header.html'
+                    'header': {
+                        templateUrl : 'views/header.html',
+                        controller : 'HeaderController'
                     },
                     'content': {
-                        templateUrl : 'views/login.html',
-                        controller  : 'LoginController'                  
+                        controller  : 'HomeManagementController'                  
                     },
                     'footer': {
                         templateUrl : 'views/footer.html'
@@ -21,17 +21,21 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
                 }
 
             })
+            .state('app.login', {
+                url:'/',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/login.html',
+                        controller  : 'LoginController'                  
+                    }
+                }
+
+            })
             .state('app.home', {
                 url:'/home',
                 views: {
-                    'header@': {
-                        templateUrl : 'views/header.html'
-                    },
                     'content@': {
                         templateUrl : 'views/index.html'                
-                    },
-                    'footer@': {
-                        templateUrl : 'views/footer.html'
                     }
                 }
 
