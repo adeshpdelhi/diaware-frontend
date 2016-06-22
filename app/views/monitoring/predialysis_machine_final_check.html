@@ -32,8 +32,8 @@
 	</div>
 </div>
 
-<div class="form-group col-sm-3">
-	<label class="col-sm-4 control-label">Dialyzate Flow Rate</label>
+<div class="form-group row">
+	<label class="col-sm-2 control-label">Dialyzate Flow Rate</label>
 	 <div class="col-sm-8">
 		<select name="dialyzate_flow_rate" required class="form-control">
 			<option disabled value="" selected></option>
@@ -43,8 +43,8 @@
 		</select>
 	</div>
 </div>
-<div class="form-group col-sm-3">
-	<label class="col-sm-4 control-label">Dialysate Counter Current Flow</label>
+<div class="form-group row">
+	<label class="col-sm-2 control-label">Dialysate Counter Current Flow</label>
 	<div class="col-sm-8">
 		<label class="radio-inline">
 		<input type="radio" name="dialysate_counter_current_flow" value="yes">Yes</label>
@@ -52,9 +52,9 @@
 		<input type="radio" name="dialysate_counter_current_flow" value="no">No</label>
 	</div>
 </div>
-<div class="form-group col-sm-3">
-	<label class="col-sm-5 control-label">Dialyzate Temperature</label>
-	 <div class="col-sm-7">
+<div class="form-group row">
+	<label class="col-sm-2 control-label">Dialyzate Temperature</label>
+	 <div class="col-sm-8">
 		<select name="dialyzate_temperature" required class="form-control">
 			<option disabled value="" selected></option>
 			<option value="35">35 &deg;C</option>
@@ -65,10 +65,24 @@
 		</select>
 	</div>
 </div>
-<div class="form-group col-sm-3">
-	<label class="col-sm-5 control-label">Conductivity</label>
-	 <div class="col-sm-7">
+<div class="form-group row">
+	<label class="col-sm-2 control-label">Conductivity</label>
+	 <div class="col-sm-8">
 		<select name="conductivity" required class="form-control">
+			<option disabled value="" selected></option>
+			<option value="13.8">13.8 mS/cm</option>
+			<option value="13.9">13.9 mS/cm</option>
+			<option value="14">14 mS/cm</option>
+			<option value="14.1">14.1 mS/cm</option>
+			<option value="14.2">14.2 mS/cm</option>
+			<option value="14.3">14.3 mS/cm</option>
+		</select>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-2 control-label">A Concentrate</label>
+	 <div class="col-sm-8">
+		<select name="a_concentrate" required class="form-control">
 			<option disabled value="" selected></option>
 			<option value="13.8">13.8 mS/cm</option>
 			<option value="13.9">13.9 mS/cm</option>
