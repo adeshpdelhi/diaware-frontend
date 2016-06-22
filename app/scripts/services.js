@@ -84,7 +84,7 @@ angular.module('confusionApp')
         getObject: function (key, defaultValue) {
             return JSON.parse($window.localStorage[key] || defaultValue);
         }
-    }
+    };
 }])
 
 .factory('authorize', [function () {
@@ -109,7 +109,7 @@ angular.module('confusionApp')
         }
       return false;
       }
-    }
+    };
 }])
 
 .factory('AuthFactory', ['$resource', '$http', '$localStorage', '$rootScope', '$window', 'baseURL', 'ngDialog', function($resource, $http, $localStorage, $rootScope, $window, baseURL, ngDialog){
@@ -168,7 +168,7 @@ angular.module('confusionApp')
                     response.data.err.name + '</p></div>' +
                 '<div class="ngdialog-buttons">\
                     <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click=confirm("OK")>OK</button>\
-                </div>'
+                </div>';
             
                 ngDialog.openConfirm({ template: message, plain: 'true'});
            }

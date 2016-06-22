@@ -13,7 +13,7 @@ angular.module('confusionApp')
             for(var i = 0; i<tempcentres.length; i++ ){
                 $scope.channels.push({value: tempcentres[i], label: tempcentres[i]});
             }
-            $scope.credentials.centres
+            $scope.credentials.centres;
             $scope.display_centre=true;
         }
     };
