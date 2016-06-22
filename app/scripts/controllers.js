@@ -41,7 +41,7 @@ angular.module('confusionApp')
     $scope.logout = function(){
         authorize.logout();
         $state.go('app.login');
-    }
+    };
 }])
 
 ;
