@@ -50,6 +50,16 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
                 }
 
             })
+
+            .state('app.monitoring', {
+                url:'/monitoring',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/monitoring/monitoringchart.html'  
+                    }
+                }
+
+            })
 ;
     
         $urlRouterProvider.otherwise('/');
