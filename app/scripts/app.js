@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
+angular.module('App', ['ui.router','ngResource','ngDialog'])
 .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
         
@@ -22,7 +22,7 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
 
             })
             .state('app.login', {
-                url:'/',
+                url:'login',
                 views: {
                     'content@': {
                         templateUrl : 'views/login.html',
@@ -32,17 +32,17 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
 
             })
             .state('app.home', {
-                url:'/home',
+                url:'home',
                 views: {
                     'content@': {
-                        templateUrl : 'views/index.html'                
+                        templateUrl : 'views/home.html'                
                     }
                 }
 
             })
 
             .state('app.registration', {
-                url:'/registration',
+                url:'registration',
                 views: {
                     'content@': {
                         templateUrl : 'views/registration/register.html'  
@@ -52,7 +52,7 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
             })
 
             .state('app.monitoring', {
-                url:'/monitoring',
+                url:'monitoring',
                 views: {
                     'content@': {
                         templateUrl : 'views/monitoring/monitoringchart.html'  
@@ -60,10 +60,58 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
                 }
 
             })
-
-            
-;
-    
+        //     .state('app',{
+        //     url:'/',
+        //         views:{
+        //         'header':{
+        //             templateUrl:'views/header.html'
+        //         },
+        //         'content':{
+        //             templateUrl:'views/home.html',
+        //             controller:'IndexController'
+        //         },
+        //         'footer':{
+        //              templateUrl:'views/footer.html'
+        //         }
+        //     }
+        // })
+        .state('app.billing',{
+            url:"billing",
+            views:{
+                'content@':{
+                    templateUrl:'views/billing/home.html',
+                    controller:'BillingHomeController'
+                }
+            }
+        })
+        .state('app.billing.newbill',{
+            url:'billing/:id',
+            views:{
+                'content@':{
+                    templateUrl:'views/billing/newbill.html',
+                    controller:'NewBillController'
+                }
+            }
+        })
+        .state('app.billing.viewbill',{
+            url:'billing/viewbill',
+            views:{
+                'content@':{
+                    templateUrl:'views/billing/viewbill.html',
+                    controller:'ViewBillController'
+                }
+            }
+        })
+        .state('app.billing.choosePatient',{
+            url:'billing/choosePatient',
+            views:{
+                'content@':{
+                    templateUrl:'views/billing/choosePatient.html',
+                    controller:'ChoosePatientController'
+                }
+            }
+        });
+            ;
         $urlRouterProvider.otherwise('/');
     })
 ;

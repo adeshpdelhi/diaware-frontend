@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('confusionApp')
+angular.module('App')
 
 .factory('$localStorage', ['$window', function ($window) {
     return {
@@ -65,5 +65,157 @@ angular.module('confusionApp')
       }
     };
 }])
+
+.service('patientFactory', function(){
+    var patients = [
+      {
+        id:1,
+        name:"aishwarya",
+        contact:1234567890
+      },{
+        id:2,
+        name: "adesh",
+        contact:9876543210
+      },
+      {
+        id:3,
+        name:"rishabh",
+        contact:8765432109
+      }
+    ]
+    this.getPatients = function(){
+      return patients;
+    }
+    this.getPatient = function(id){
+      for (var i = patients.length - 1; i >= 0; i--) {
+        if(patients[i].id == id) 
+          return patients[i]; 
+      }
+      return null;
+    }
+  })
+// use factory/service to interact with the database n inject that in controller
+
+  .factory('dropDownFactory', function(){
+    // use separate factory maybe then like panelFactory .... or directly interact with db
+    var drpDwnFac = {};
+    var panels = [
+      {
+        value:"cghs",
+        text:'CGHS'
+      },
+      {
+        value:"panel1",
+        text:'PANEL1'
+      },
+      {
+        value:'panel2',
+        text:"PANEL2"
+      }
+    ];
+    var transactionTypes = [
+      {
+        value:"dialysis",
+        text:"Dialysis"
+      },
+      {
+        value:"procedure",
+        text:"Procedure"  
+      },
+      {
+        value:"pharmacy",
+        text:"Pharmacy"
+      },
+      {
+        value:"consumable",
+        text:"Consumable"
+      }
+    ];
+    var dialysisTypes = [
+      {
+        value:'dialysis1',
+        text:"Dialysis1"
+      },
+      {
+        value:'dialysis2',
+        text:"Dialysis2"
+      },
+      {
+        value:'dialysis3',
+        text:'Dialysis3'
+      }
+    ];
+    var proceTypes = [
+      {
+        value:'procedure1',
+        text:"procedure1"
+      },
+      {
+        value:'procedure2',
+        text:"procedure2"
+      },
+      {
+        value:'procedure3',
+        text:'procedure3'
+      }
+    ];
+    var pharmacyTypes = [
+      {
+        value:'pharmacy1',
+        text:"pharmacy1"
+      },
+      {
+        value:'pharmacy2',
+        text:"pharmacy2"
+      },
+      {
+        value:'pharmacy3',
+        text:'pharmacy3'
+      }
+    ];
+    var consumableTypes = [
+      {
+        value:'consumable1',
+        text:"consumable1"
+      },
+      {
+        value:'consumable2',
+        text:"consumable2"
+      },
+      {
+        value:'consumable3',
+        text:'consumable3'
+      }
+    ];
+    var bills = [];
+    drpDwnFac.getDialysis = function(){
+      return dialysisTypes;
+    };
+    drpDwnFac.getProcedures = function(){
+      return proceTypes
+    };
+    drpDwnFac.getPharmacy = function(){
+      return pharmacyTypes;
+    };
+    drpDwnFac.getConsumables = function(){
+      return consumableTypes;
+    };
+    drpDwnFac.getPanels = function(){
+      return panels;
+    }
+    drpDwnFac.getTransactionTypes = function(){
+      return transactionTypes;
+    }
+    drpDwnFac.updateBills = function(bill){
+      bills = bills.concat(bill)
+    }
+    return drpDwnFac;
+  })
+  .service('newBillFactory',['$resource', function($resource){
+
+  }])
+  .service('viewBillFactory',function(){
+
+  })
 
 ;
