@@ -15,7 +15,8 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                         controller  : 'HomeManagementController'
                     },
                     'footer': {
-                        templateUrl : 'views/footer.html'
+                        templateUrl : 'views/footer.html',
+                        controller : 'FooterController'
                     }
                 }
 

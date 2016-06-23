@@ -18,16 +18,17 @@ angular.module('App')
     };
     $scope.chooseCentre = function(){
         authorize.setCentre($scope.credentials.centre);
-        $state.go('app.home');
+        console.log("centre set to "+$scope.credentials.centre);
+        $state.go('app.home', {}, {reload: true});
     };
 
 }])
 
 .controller('HomeManagementController', ['$scope', '$state', 'authorize', function ($scope, $state, authorize) {
     if(authorize.isLoggedIn() === true)
-        $state.go('app.home');
+        $state.go('app.home', {}, {reload: true});
     else
-        $state.go('app.login');
+        $state.go('app.login', {}, {reload: true});
 }])
 
 .controller('HeaderController', ['$scope', '$state', 'authorize', function ($scope, $state, authorize) {
@@ -36,12 +37,17 @@ angular.module('App')
     };
     $scope.loggedIn = authorize.isLoggedIn();
     $scope.username = authorize.getUsername();
-    $scope.username = authorize.getCentre();
+    $scope.centre = authorize.getCentre();
     $scope.logout = function(){
         authorize.logout();
-        $state.go('app');
+        $state.go('app', {}, {reload: true});
     };
 }])
+
+.controller('FooterController', ['$scope', '$state', 'authorize', function ($scope, $state, authorize) {
+    $scope.loggedIn = authorize.isLoggedIn();
+}])
+
 .controller('NewBillController',['$scope','patientFactory','billFactory', '$stateParams','dropDownFactory','choosePatientFactory', function($scope,patientFactory,billFactory, $stateParams, dropDownFactory,choosePatientFactory){
         $scope.panelSelected = false;
       //  $scope.patient = patientFactory.getPatient(parseInt($stateParams.id,10));

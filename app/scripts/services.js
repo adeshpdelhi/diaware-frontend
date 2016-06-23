@@ -36,6 +36,7 @@ angular.module('App')
 
 .factory('authorize', ['$localStorage', function ($localStorage) {
   var logged_in_user = $localStorage.get('username','');
+  var logged_in_centre = $localStorage.get('centre','');
   var logged_in = false;
   if(logged_in_user !== ''){
     logged_in = true;
@@ -58,7 +59,7 @@ angular.module('App')
           if(users[i].username == username && users[i].password == password){
               logged_in_user=username;
               logged_in=true;
-              $localStorage.store('username',username);
+              $localStorage.store('username',users[i].username);
               return users[i].centres;
           }
         }
@@ -67,14 +68,24 @@ angular.module('App')
       getUsername : function(){
         return logged_in_user;
       },
+      setCentre : function(centre){
+        $localStorage.store('centre', centre);
+        logged_in_centre = centre;
+      },
+      getCentre : function(centre){
+          return logged_in_centre;
+      },
       isLoggedIn : function(){
-        console.log("Logged in: "+logged_in);
+        console.log("Logged in: "+logged_in+" "+logged_in_centre);
         return logged_in;
       },
       logout : function(){
         logged_in=false;
         logged_in_user='';
+        logged_in_centre='';
         $localStorage.store('username','');
+        $localStorage.store('centre','');
+
       }
     };
 }])
