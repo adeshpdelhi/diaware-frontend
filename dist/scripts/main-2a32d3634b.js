@@ -610,8 +610,7 @@ angular.module('App')
         var pats= patientFactory.getPatients();
         $scope.patients = patientFactory.getPatients();
         $scope.redirect = function(id){
-        	choosePatientFactory.setPatient($scope.patient.id);
-        	console.log($scope.patient.id);
+        	choosePatientFactory.setPatient(id);
         	var callback = $stateParams.callback;
         	$state.go('app.'+callback);
         }
@@ -645,8 +644,7 @@ angular.module('App')
   var patient = $localStorage.getObject('chosenPatient','{}');
   patFac.setPatient = function(id){
     patient = {id: id};
-    console.log(patient);
-    $localStorage.storeObject('favorites', patient);
+    $localStorage.storeObject('chosenPatient', patient);
   };
   patFac.getChosenPatient = function(){
     return patient;

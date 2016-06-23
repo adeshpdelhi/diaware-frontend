@@ -19,7 +19,6 @@ angular.module('App')
     };
     $scope.chooseCentre = function(){
         $state.go('app.home');
-        console.log("moving to home");
     };
 
 }])
@@ -37,7 +36,6 @@ angular.module('App')
     };
     $scope.loggedIn = authorize.isLoggedIn();
     $scope.username = authorize.getUsername();
-    console.log($scope.loggedIn+" "+$scope.username);
     $scope.logout = function(){
         authorize.logout();
         $state.go('app');
@@ -163,9 +161,7 @@ angular.module('App')
         var pats= patientFactory.getPatients();
         $scope.patients = patientFactory.getPatients();
         $scope.redirect = function(id){
-        	console.log("redirect: " + id);
-        	choosePatientFactory.setPatient($scope.patient.id);
-        	console.log($scope.patient.id);
+        	choosePatientFactory.setPatient(id);
         	var callback = $stateParams.callback;
         	$state.go('app.'+callback);
         }
