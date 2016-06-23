@@ -180,6 +180,9 @@ angular.module('App')
                     $scope.billsJoinedPatients[i].patient = patients[i];
             }
         }
+        $scope.redirect = function(){
+            // add code to redirect to bill details page
+        }
     }])
     .controller('BillingHomeController',['$scope', function($scope){
 
