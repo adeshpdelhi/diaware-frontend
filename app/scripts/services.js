@@ -234,11 +234,12 @@ angular.module('App')
   .service('billFactory',function(){
     var bills =[];
     this.getBills = function(){
+      console.log("in services.getBills: "+ bills[0]);
       return bills;
     };
     this.updateBills = function(bill){
       console.log("in services.updateBills:"+ bill[0]);
-      bills.concat(bill);
+      bills = bills.concat(bill);
     }
     this.addBill = function(bill){
       bills.push(bill);
