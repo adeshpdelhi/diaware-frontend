@@ -21,7 +21,17 @@ angular.module('App')
         }
     };
 }])
-
+.factory('choosePatientFactory',['$localStorage', function($localStorage){
+  var patFac = {};
+  var patient = $localStorage.getObject('chosenPatient','{}');
+  patFac.setPatient = function(id){
+    patient = {id: id};
+    $localStorage.storeObject('favorites', patient);
+  };
+  patFac.getChosenPatient = function(){
+    return patient;
+  }
+}])
 .factory('authorize', ['$localStorage', function ($localStorage) {
   var logged_in_user = $localStorage.get('username','');
   var logged_in = false;

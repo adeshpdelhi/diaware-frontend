@@ -490,10 +490,11 @@ angular.module('App')
         $state.go('app');
     };
 }])
-.controller('NewBillController',['$scope','patientFactory','$stateParams','dropDownFactory', function($scope,patientFactory,$stateParams, dropDownFactory){
+.controller('NewBillController',['$scope','patientFactory','$stateParams','dropDownFactory','choosePatientFactory', function($scope,patientFactory,$stateParams, dropDownFactory,choosePatientFactory){
         $scope.panelSelected = false;
         $scope.patient = patientFactory.getPatient(parseInt($stateParams.id,10));
         
+        $scope.patient.id = choosePatientFactory.getChosenPatient();
         $scope.panels = dropDownFactory.getPanels();
         $scope.transactionTypes =  dropDownFactory.getTransactionTypes();
         $scope.show = false;
@@ -600,7 +601,7 @@ angular.module('App')
     .controller('BillingHomeController',['$scope', function($scope){
 
     }])
-    .controller('ChoosePatientController',['$scope','patientFactory', function($scope,patientFactory){
+    .controller('ChoosePatientController',['$scope','patientFactory','choosePatientFactory', function($scope,patientFactory, choosePatientFactory){
         $scope.patient = {
             id:null,
             name:null,
@@ -608,6 +609,7 @@ angular.module('App')
         }
         var pats= patientFactory.getPatients();
         $scope.patients = patientFactory.getPatients();
+        choosePatientFactory.setPatient(patient.id);
     }])
 ;
 'use strict';
@@ -633,7 +635,17 @@ angular.module('App')
         }
     };
 }])
-
+.factory('choosePatientFactory',['$localStorage', function($localStorage){
+  var patFac = {};
+  var patient = $localStorage.getObject('chosenPatient','{}');
+  patFac.setPatient = function(id){
+    patient = {id: id};
+    $localStorage.storeObject('favorites', patient);
+  };
+  patFac.getChosenPatient = function(){
+    return patient;
+  }
+}])
 .factory('authorize', ['$localStorage', function ($localStorage) {
   var logged_in_user = $localStorage.get('username','');
   var logged_in = false;
