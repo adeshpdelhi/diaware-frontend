@@ -15,7 +15,6 @@ angular.module('App')
             }
             $scope.credentials.centres;
             $scope.display_centre=true;
-            console.log("Centre shown");
         }
     };
     $scope.chooseCentre = function(){
