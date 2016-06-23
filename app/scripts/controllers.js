@@ -96,8 +96,9 @@ angular.module('App')
         $scope.submit = function(){
             // $scope.submitted = true;
             $scope.bill.transactionId = trId++;
-            $scope.bills.push($scope.bill);
             $scope.bill.patientId = $scope.patient.patientId;
+            if($scope.bill.transactionType !== "")
+                $scope.bills.push($scope.bill);
             console.log($scope.bill);
             billFactory.updateBills($scope.bills);
 

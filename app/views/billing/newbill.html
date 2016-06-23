@@ -61,6 +61,8 @@
                                 <option value="IPD">IPD</option>
                                 <option value="ICU">ICU</option>
                             </select>
+                            <button type="submit" class="btn btn-primary col-sm-2 col-sm-push-10" ng-click="submit()" ng-if="(bills.length != 0) ? true : false ">Make Payment</button>
+                            <p>{{bills.length}}</p>
                         </div>
                         <div class="form-group" ng-show="bedSelected">
                             <label for="modeOfPayment" class="col-sm-2 control-label">Mode of Payment</label>
@@ -109,7 +111,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary col-sm-2 col-sm-push-10" ng-click="submit()" ng-disabled="billingForm.$invalid">Save</button>
+                                    <button type="submit" class="btn btn-primary col-sm-2 col-sm-push-10" ng-click="submit()" ng-disabled="billingForm.$invalid">Make Payment</button>
                                 </div>
                                 <!-- <p>{{bill.transactionId}}, {{bill.transactionType}}, {{bill.product}}, {{bill.quantity}}, {{bill.cost}}</p> -->
                             </div>
