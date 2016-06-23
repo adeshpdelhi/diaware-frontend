@@ -29,12 +29,16 @@
                 </form>  
                 <div class="row">   
                     <form class="form-horizontal"  role="form" ng-show="display_centre">
-                        <label class="col-xs-4">Centre</label>
-                        <select class="col-xs-6 form-control"
+                        <div class="form-group">
+                        <label class="col-sm-3 control-label">Centre</label>
+                        <div class="col-xs-6">
+                        <select class="form-control"
                            ng-model="credentials.centre"
                            ng-options="channel.value as channel.label for channel in channels" ng-model="credentials.centre">
                             <option value="" disabled></option>
                         </select>
+                        </div>
+                        <br><br>
                         <div style="margin-top:20px" class="form-group">
                             <div class="col-sm-12 controls">
                               <center><a class="btn btn-success" ng-click="chooseCentre()">Submit</a></center>    
