@@ -40,7 +40,7 @@ angular.module('App')
     console.log($scope.loggedIn+" "+$scope.username);
     $scope.logout = function(){
         authorize.logout();
-        $state.go('app.login');
+        $state.go('app');
     };
 }])
 .controller('NewBillController',['$scope','patientFactory','$stateParams','dropDownFactory', function($scope,patientFactory,$stateParams, dropDownFactory){
