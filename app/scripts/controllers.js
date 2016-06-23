@@ -15,6 +15,7 @@ angular.module('App')
             }
             $scope.credentials.centres;
             $scope.display_centre=true;
+            console.log("Centre shown");
         }
     };
     $scope.chooseCentre = function(){
@@ -170,6 +171,10 @@ angular.module('App')
  .controller('ViewRegistrationController',['$scope','patientFactory','choosePatientFactory', function($scope, patientFactory, choosePatientFactory){
        
         $scope.patient = patientFactory.getPatient(choosePatientFactory.getChosenPatient().id);
-        console.log($scope.patient);
+    }])
+
+  .controller('MonitoringController',['$scope','patientFactory','choosePatientFactory', function($scope, patientFactory, choosePatientFactory){
+       
+        $scope.patient = patientFactory.getPatient(choosePatientFactory.getChosenPatient().id);
     }])
 ;

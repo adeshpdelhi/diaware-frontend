@@ -12,7 +12,6 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                         controller : 'HeaderController'
                     },
                     'content': {
-                        template:"<h1>hey</h1>",
                         controller  : 'HomeManagementController'
                     },
                     'footer': {
@@ -76,7 +75,8 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 url:'monitoring',
                 views: {
                     'content@': {
-                        templateUrl : 'views/monitoring/monitoringchart.html'
+                        templateUrl : 'views/monitoring/monitoringchart.html',
+                        controller : 'MonitoringController'
                     }
                 }
 

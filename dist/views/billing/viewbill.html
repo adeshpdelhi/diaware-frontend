@@ -57,10 +57,10 @@
                                 <tr ng-repeat = "bill in billsJoinedPatients" style="height:2px;cursor: pointer;" class='clickable-row' ng-click="redirect(bill.transactionId)" > 
                                     <td style="text-align:center;" width="9%">bill.transactionId</td>
                                     <td style="text-align:center;" width="10%">bill.patientId</td>
-                                    <td style="text-align:center;" width="15%">PatientName</td>
-                                    <td style="text-align:center;" width="10%">Patient Contact</td>
-                                    <td style="text-align:center;" width="15%">Transaction Type</td>
-                                    <td style="text-align:center;" width="20%">Product</td>
+                                    <td style="text-align:center;" width="15%">bill.patientName</td>
+                                    <td style="text-align:center;" width="10%">bill.patientContact</td>
+                                    <td style="text-align:center;" width="15%">bill.transactionType</td>
+                                    <td style="text-align:center;" width="20%">bill.Product</td>
                                     <td style="text-align:center;" width="5%">Qty</td>
                                     <td style="text-align:center;" width="8%">Amount</td>
                                     <td style="text-align:center;" width="8%">Status</td>
