@@ -26,6 +26,7 @@ angular.module('App')
   var patient = $localStorage.getObject('chosenPatient','{}');
   patFac.setPatient = function(id){
     patient = {id: id};
+    console.log(patient);
     $localStorage.storeObject('favorites', patient);
   };
   patFac.getChosenPatient = function(){

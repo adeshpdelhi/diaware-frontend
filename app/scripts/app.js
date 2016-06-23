@@ -70,11 +70,11 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 }
             }
         })
-        .state('app.billing.choosePatient',{
-            url:'choosePatient',
+        .state('app.choosePatient',{
+            url:'choosePatient/:callback',
             views:{
                 'content@':{
-                    templateUrl:'views/billing/choosePatient.html',
+                    templateUrl:'views/choosePatient.html',
                     controller:'ChoosePatientController'
                 }
             }

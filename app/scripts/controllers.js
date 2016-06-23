@@ -45,9 +45,9 @@ angular.module('App')
 }])
 .controller('NewBillController',['$scope','patientFactory','$stateParams','dropDownFactory','choosePatientFactory', function($scope,patientFactory,$stateParams, dropDownFactory,choosePatientFactory){
         $scope.panelSelected = false;
-        $scope.patient = patientFactory.getPatient(parseInt($stateParams.id,10));
+      //  $scope.patient = patientFactory.getPatient(parseInt($stateParams.id,10));
         
-        $scope.patient.id = choosePatientFactory.getChosenPatient();
+        $scope.patient = patientFactory.getPatient(choosePatientFactory.getChosenPatient().id);
         $scope.panels = dropDownFactory.getPanels();
         $scope.transactionTypes =  dropDownFactory.getTransactionTypes();
         $scope.show = false;
@@ -154,7 +154,7 @@ angular.module('App')
     .controller('BillingHomeController',['$scope', function($scope){
 
     }])
-    .controller('ChoosePatientController',['$scope','patientFactory','choosePatientFactory', function($scope,patientFactory, choosePatientFactory){
+    .controller('ChoosePatientController',['$scope','patientFactory','choosePatientFactory','$state','$stateParams', function($scope,patientFactory, choosePatientFactory, $state, $stateParams){
         $scope.patient = {
             id:null,
             name:null,
@@ -162,6 +162,12 @@ angular.module('App')
         }
         var pats= patientFactory.getPatients();
         $scope.patients = patientFactory.getPatients();
-        choosePatientFactory.setPatient($scope.patient.id);
+        $scope.redirect = function(id){
+        	console.log("redirect: " + id);
+        	choosePatientFactory.setPatient($scope.patient.id);
+        	console.log($scope.patient.id);
+        	var callback = $stateParams.callback;
+        	$state.go('app.'+callback);
+        }
     }])
 ;

@@ -413,11 +413,11 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 }
             }
         })
-        .state('app.billing.choosePatient',{
-            url:'choosePatient',
+        .state('app.choosePatient',{
+            url:'choosePatient/:callback',
             views:{
                 'content@':{
-                    templateUrl:'views/billing/choosePatient.html',
+                    templateUrl:'views/choosePatient.html',
                     controller:'ChoosePatientController'
                 }
             }
@@ -492,9 +492,9 @@ angular.module('App')
 }])
 .controller('NewBillController',['$scope','patientFactory','$stateParams','dropDownFactory','choosePatientFactory', function($scope,patientFactory,$stateParams, dropDownFactory,choosePatientFactory){
         $scope.panelSelected = false;
-        $scope.patient = patientFactory.getPatient(parseInt($stateParams.id,10));
+      //  $scope.patient = patientFactory.getPatient(parseInt($stateParams.id,10));
         
-        $scope.patient.id = choosePatientFactory.getChosenPatient();
+        $scope.patient = patientFactory.getPatient(choosePatientFactory.getChosenPatient().id);
         $scope.panels = dropDownFactory.getPanels();
         $scope.transactionTypes =  dropDownFactory.getTransactionTypes();
         $scope.show = false;
@@ -601,7 +601,7 @@ angular.module('App')
     .controller('BillingHomeController',['$scope', function($scope){
 
     }])
-    .controller('ChoosePatientController',['$scope','patientFactory','choosePatientFactory', function($scope,patientFactory, choosePatientFactory){
+    .controller('ChoosePatientController',['$scope','patientFactory','choosePatientFactory','$state','$stateParams', function($scope,patientFactory, choosePatientFactory, $state, $stateParams){
         $scope.patient = {
             id:null,
             name:null,
@@ -609,7 +609,12 @@ angular.module('App')
         }
         var pats= patientFactory.getPatients();
         $scope.patients = patientFactory.getPatients();
-        choosePatientFactory.setPatient(patient.id);
+        $scope.redirect = function(id){
+        	choosePatientFactory.setPatient($scope.patient.id);
+        	console.log($scope.patient.id);
+        	var callback = $stateParams.callback;
+        	$state.go('app.'+callback);
+        }
     }])
 ;
 'use strict';
@@ -640,12 +645,15 @@ angular.module('App')
   var patient = $localStorage.getObject('chosenPatient','{}');
   patFac.setPatient = function(id){
     patient = {id: id};
+    console.log(patient);
     $localStorage.storeObject('favorites', patient);
   };
   patFac.getChosenPatient = function(){
     return patient;
-  }
+  };
+  return patFac;
 }])
+
 .factory('authorize', ['$localStorage', function ($localStorage) {
   var logged_in_user = $localStorage.get('username','');
   var logged_in = false;
