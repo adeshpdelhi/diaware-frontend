@@ -13,17 +13,17 @@
                     <div class="form-group" ng-class="{'has-error': choosePatientForm.contactNumber.$error.number || ((choosePatientForm.contactNumber.$error.minlength || choosePatientForm.contactNumber.$error.maxlength) && choosePatientForm.contactNumber.$dirty)}" required>
                         <label for="name" class="col-sm-1 control-label">Name</label>                        
                         <div class="col-sm-2">
-                            <input  type="text" class="form-control" id="name" name="name" ng-model="patient.name" ng-required="!(patient.name || patient.id || patient.contact)">
+                            <input  type="text" class="form-control" id="name" name="name" ng-model="patient.patientName" ng-required="!(patient.patientName || patient.patientId || patient.patientContact)">
                         </div>
                         <!-- ng-required="!(patientName || patientID || patientContact) -->
                         <!-- add filter option as well -->
                         <label class="col-sm-2 control-label">ID Number</label>
                         <div class="col-sm-2">
-                            <input  type="number" class="form-control" id="id" name="id" ng-model="patient.id">
+                            <input  type="number" class="form-control" id="id" name="id" ng-model="patient.patientId">
                         </div>
                         <label for="contactNumber" class="col-sm-2 control-label">Contact Number</label>
                         <div class="col-sm-2">
-                            <input type="number" class="form-control" id="contactNumber" name="contactNumber" ng-model="patient.contact" ng-minlength="10" ng-maxlength="10" placeholder="Patient Contact Number">
+                            <input type="number" class="form-control" id="contactNumber" name="contactNumber" ng-model="patient.patientContact" ng-minlength="10" ng-maxlength="10" placeholder="Patient Contact Number">
                             <!-- <span class="help-block" ng-show="billingForm.contactNumber.$error.required || billingForm.contactNumber.$error.number">
                                            Valid phone number is required
                             </span> -->
@@ -48,11 +48,11 @@
                             <tbody style="max-height:300px;">
                             <!-- apply filter left -->
                             <!-- ng-click="setSelected(patient)" -->
-                             <!-- ui-sref="app.billing.newbill({id: patient.id})" -->
-                                <tr ng-repeat = "patient in patients" style="height:2px;cursor: pointer;" class='clickable-row' ng-click="redirect(patient.id)" > 
-                                    <td width="30%" >{{ patient.id }}</td>
-                                    <td width="40%">{{ patient.name }}</td>
-                                    <td width="30%">{{ patient.contact }}</td>
+                             <!-- ui-sref="app.billing.newbill({id: patient.patientId})" -->
+                                <tr ng-repeat = "patient in patients" style="height:2px;cursor: pointer;" class='clickable-row' ng-click="redirect(patient.patientId)" > 
+                                    <td width="30%" >{{ patient.patientId }}</td>
+                                    <td width="40%">{{ patient.patientName }}</td>
+                                    <td width="30%">{{ patient.patientContact }}</td>
                                 </tr>    
                                 <!-- <a ui-sref="#" ng-model=""> -->
                             </tbody>

@@ -81,18 +81,18 @@ angular.module('App')
 .service('patientFactory', function(){
     var patients = [
       {
-        id:1,
-        name:"aishwarya",
-        contact:1234567890
+        patientId:1,
+        patientName:"aishwarya",
+        patientContact:1234567890
       },{
-        id:2,
-        name: "adesh",
-        contact:9876543210
+        patientId:2,
+        patientName: "adesh",
+        patientContact:9876543210
       },
       {
-        id:3,
-        name:"rishabh",
-        contact:8765432109
+        patientId:3,
+        patientName:"rishabh",
+        patientContact:8765432109
       }
     ];
     this.getPatients = function(){
@@ -100,7 +100,7 @@ angular.module('App')
     };
     this.getPatient = function(id){
       for (var i = patients.length - 1; i >= 0; i--) {
-        if(patients[i].id == id) 
+        if(patients[i].patientId == id) 
           return patients[i]; 
       }
       return null;
