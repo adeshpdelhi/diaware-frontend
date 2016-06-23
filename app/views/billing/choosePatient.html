@@ -48,8 +48,8 @@
                             <tbody style="max-height:300px;">
                             <!-- apply filter left -->
                             <!-- ng-click="setSelected(patient)" -->
-                                <tr ng-repeat = "patient in patients" style="height:2px;" > 
-                                    <td width="30%" ><a ui-sref="app.billing.newbill({id: patient.id})">{{ patient.id }}</a></td>
+                                <tr ng-repeat = "patient in patients" style="height:2px;cursor: pointer;" class='clickable-row' ui-sref="app.billing.newbill({id: patient.id})" > 
+                                    <td width="30%" >{{ patient.id }}</td>
                                     <td width="40%">{{ patient.name }}</td>
                                     <td width="30%">{{ patient.contact }}</td>
                                 </tr>    
