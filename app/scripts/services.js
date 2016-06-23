@@ -200,7 +200,6 @@ angular.module('App')
         text:'consumable3'
       }
     ];
-    var bills = [];
     drpDwnFac.getDialysis = function(){
       return dialysisTypes;
     };
@@ -219,16 +218,19 @@ angular.module('App')
     drpDwnFac.getTransactionTypes = function(){
       return transactionTypes;
     };
-    drpDwnFac.updateBills = function(bill){
-      bills = bills.concat(bill);
-    };
     return drpDwnFac;
   })
-  .service('newBillFactory',['$resource', function($resource){
-
-  }])
-  .service('viewBillFactory',function(){
-
+  .service('billFactory',function(){
+    var bills =[];
+    this.getBills = function(){
+      return bills;
+    };
+    this.updateBills = function(bill){
+      bills.concat(bill);
+    }
+    this.addBill = function(bill){
+      bills.push(bill);
+    }
   })
 
 ;

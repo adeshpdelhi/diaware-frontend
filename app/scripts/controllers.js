@@ -42,7 +42,7 @@ angular.module('App')
         $state.go('app');
     };
 }])
-.controller('NewBillController',['$scope','patientFactory','$stateParams','dropDownFactory','choosePatientFactory', function($scope,patientFactory,$stateParams, dropDownFactory,choosePatientFactory){
+.controller('NewBillController',['$scope','patientFactory','billFactory', '$stateParams','dropDownFactory','choosePatientFactory', function($scope,patientFactory,billFactory, $stateParams, dropDownFactory,choosePatientFactory){
         $scope.panelSelected = false;
       //  $scope.patient = patientFactory.getPatient(parseInt($stateParams.id,10));
         
@@ -57,7 +57,8 @@ angular.module('App')
             product:"",
             quantity:1,
             cost:"",
-            paid:false
+            paid:false,
+            patientId: ""
         }
         $scope.bedSelected = false;
         $scope.changeState = function(i){
@@ -96,8 +97,9 @@ angular.module('App')
             // $scope.submitted = true;
             $scope.bill.transactionId = trId++;
             $scope.bills.push($scope.bill);
+            $scope.bill.patientId = $scope.patient.patientId;
             console.log($scope.bill);
-            dropDownFactory.updateBills($scope.bills);
+            billFactory.updateBills($scope.bills);
 
             for (var i = $scope.bills.length - 1; i >= 0; i--) {
                 $scope.bills[i].paid = true;
@@ -108,7 +110,8 @@ angular.module('App')
                 product:"",
                 quantity:1,
                 cost:230,
-                paid: false
+                paid: false,
+                patientId:""
             }
             $scope.billingForm.$setPristine();
             $scope.panelSelected = false;
@@ -128,6 +131,7 @@ angular.module('App')
         }
         $scope.add = function(){
             $scope.bill.transactionId = trId++;
+            $scope.bill.patientId = $scope.patient.patientId;
             $scope.bills.push($scope.bill);
             $scope.bill = {
                 transactionId:'',
@@ -135,7 +139,8 @@ angular.module('App')
                 product:"",
                 quantity:1,
                 cost:230,
-                paid: false
+                paid: false,
+                patientId: ""
             }
             $scope.billingForm.$setPristine();
             $scope.panelSelected = false;
@@ -147,7 +152,10 @@ angular.module('App')
         }
 
     }])
-    .controller('ViewBillController',['$scope', function($scope){
+// use populate join from backend database ... TB changed 
+    .controller('ViewBillController',['$scope','billFactory','patientFactory', function($scope, billFactory){
+        $scope.billsJoinedPatients = billFactory.getBills();
+        
 
     }])
     .controller('BillingHomeController',['$scope', function($scope){
