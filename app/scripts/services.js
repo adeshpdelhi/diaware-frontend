@@ -226,6 +226,7 @@ angular.module('App')
       return bills;
     };
     this.updateBills = function(bill){
+      console.log("in services.updateBills:"+ bill[0]);
       bills.concat(bill);
     }
     this.addBill = function(bill){
