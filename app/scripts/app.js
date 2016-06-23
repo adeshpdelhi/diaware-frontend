@@ -60,6 +60,8 @@ angular.module('confusionApp', ['ui.router','ngResource','ngDialog'])
                 }
 
             })
+
+            
 ;
     
         $urlRouterProvider.otherwise('/');

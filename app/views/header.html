@@ -13,6 +13,12 @@
                     <li ng-class="{active: stateis('app')}"><a ui-sref="app">
                         <span class="glyphicon glyphicon-home"
                          aria-hidden="true"></span> Home</a></li>
+                    <li ng-class="{active: stateis('app.registration')}"><a ui-sref="app.registration">
+                        <span class="glyphicon glyphicon-user"
+                         aria-hidden="true"></span> Registration</a></li>
+                    <li ng-class="{active: stateis('app.monitoring')}"><a ui-sref="app.monitoring">
+                        <span class="glyphicon glyphicon-list-alt"
+                         aria-hidden="true"></span> Monitoring Chart</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-show="loggedIn">
