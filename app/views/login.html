@@ -32,7 +32,7 @@
                         <label class="col-xs-4">Centre</label>
                         <select class="col-xs-6 form-control"
                            ng-model="credentials.centre"
-                           ng-options="channel.value as channel.label for channel in channels">
+                           ng-options="channel.value as channel.label for channel in channels" ng-model="credentials.centre">
                             <option value="" disabled></option>
                         </select>
                         <div style="margin-top:20px" class="form-group">
