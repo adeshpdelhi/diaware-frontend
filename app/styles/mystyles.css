@@ -5,13 +5,13 @@
 .row-content {
   margin: 0px auto;
   padding: 50px 0px;
-  border-bottom: 1px ridge;
   min-height: 400px;
 }
 .row-footer {
   margin: 0px auto;
   padding: 20px 0px;
   color: floralwhite;
+  position: absolute;
   background-color: black;
   bottom: 0px;
   height: 120px;
@@ -84,6 +84,7 @@ body {
   align: center;
   padding: 50px 0px 0px 0px;
   z-index: 0;
+  margin: 0 0 120px;
 }
 .tab-content {
   border-bottom: 1px solid #dddddd;
@@ -120,4 +121,8 @@ table.table-fixedheader>tbody {
   font-weight: 1800px;
   line-height: 1.33;
   border-radius: 25px;
+}
+html {
+    position: relative;
+    min-height: 100%;
 }
