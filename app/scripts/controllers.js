@@ -98,9 +98,9 @@ angular.module('App')
         $scope.bill.cost = 230
         $scope.bills = [];
         var trId = 0;
-        // $scope.submitted = false; // to be used with ng show for remove bill in billTable 
+        var pendingTransactions = false; 
         $scope.submit = function(){
-            // $scope.submitted = true;
+            pendingTransactions = false;
             $scope.bill.transactionId = trId++;
             $scope.bill.patientId = $scope.patient.patientId;
             if($scope.bill.transactionType !== "")
@@ -130,6 +130,15 @@ angular.module('App')
             // $scope.bills = [];
 
         }
+        $scope.check = function(){
+            // console.log($scope.bill.transactionType + " " + $scope.bills.length);
+            // 
+            if(!pendingTransactions) return false;
+            else {
+                    if($scope.bill.transactionType === "") return true;
+                    else return false;      
+                }
+        }
         $scope.removeEntry = function(id){
             for (var i = $scope.bills.length - 1; i >= 0; i--) {
                 if($scope.bills[i].transactionId == id)
@@ -137,6 +146,7 @@ angular.module('App')
             }
         }
         $scope.add = function(){
+            pendingTransactions = true;
             $scope.bill.transactionId = trId++;
             $scope.bill.patientId = $scope.patient.patientId;
             $scope.bills.push($scope.bill);
@@ -160,7 +170,7 @@ angular.module('App')
 
     }])
 // use populate join from backend database ... TB changed 
-    .controller('ViewBillController',['$scope','billFactory','patientFactory', function($scope, billFactory){
+    .controller('ViewBillController',['$scope','billFactory','patientFactory', function($scope, billFactory, patientFactory){
         $scope.billsJoinedPatients = billFactory.getBills();
         var patients = patientFactory.getPatients();
         for (var i = $scope.billsJoinedPatients.length - 1; i >= 0; i--) {
