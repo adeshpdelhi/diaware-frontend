@@ -42,7 +42,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
             })
 
             .state('app.registration', {
-                url:'registration',
+                url:'registration/',
                 views: {
                     'content@': {
                         templateUrl : 'views/registration/home.html'
@@ -52,7 +52,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
             })
 
             .state('app.registration.new', {
-                url:'registration',
+                url:'new',
                 views: {
                     'content@': {
                         templateUrl : 'views/registration/newregister.html'
@@ -62,7 +62,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
             })
 
             .state('app.registration.view', {
-                url:'registration',
+                url:'view',
                 views: {
                     'content@': {
                         templateUrl : 'views/registration/viewregister.html',
