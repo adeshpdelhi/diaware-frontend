@@ -1,0 +1,64 @@
+<div class="container" ng-controller="ChoosePatientController">
+    <div class="row row-content ">
+        <!-- <div id="Registerbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">  -->
+        <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title"><b>Choose Patient</b></div>
+                <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+            </div>     
+
+            <div style="padding-top:30px; text-align:center;" class="panel-body bg-warning" >
+                <form class="form-horizontal" role="form" name="choosePatientForm" id="choosePatientForm" novalidate>
+                 
+                    <div class="form-group" ng-class="{'has-error': choosePatientForm.contactNumber.$error.number || ((choosePatientForm.contactNumber.$error.minlength || choosePatientForm.contactNumber.$error.maxlength) && choosePatientForm.contactNumber.$dirty)}" required>
+                        <label for="name" class="col-sm-1 control-label">Name</label>                        
+                        <div class="col-sm-2">
+                            <input  type="text" class="form-control" id="name" name="name" ng-model="patient.name" ng-required="!(patient.name || patient.id || patient.contact)">
+                        </div>
+                        <!-- ng-required="!(patientName || patientID || patientContact) -->
+                        <!-- add filter option as well -->
+                        <label class="col-sm-2 control-label">ID Number</label>
+                        <div class="col-sm-2">
+                            <input  type="number" class="form-control" id="id" name="id" ng-model="patient.id">
+                        </div>
+                        <label for="contactNumber" class="col-sm-2 control-label">Contact Number</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control" id="contactNumber" name="contactNumber" ng-model="patient.contact" ng-minlength="10" ng-maxlength="10" placeholder="Patient Contact Number">
+                            <!-- <span class="help-block" ng-show="billingForm.contactNumber.$error.required || billingForm.contactNumber.$error.number">
+                                           Valid phone number is required
+                            </span> -->
+                            <span class="help-block" ng-show="((choosePatientForm.contactNumber.$error.minlength || choosePatientForm.contactNumber.$error.maxlength) && choosePatientForm.contactNumber.$dirty) ">
+                                           Phone number should be 10 digits
+                            </span>
+                        </div>  
+                    </div>
+                    <hr/>
+                    <!-- ng-if bhi use kr skte hain -->
+                    <!-- get filtered patients from patient id name and contact -->
+                    <p></p>
+                    <div class="table-responsive ">
+                        <table id="resultTable" class="table table-striped table-fixedheader table-bordered" >
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center;" width="30%">Patient ID</th>
+                                    <th  style="text-align:center;" width="40%">PatientName</th>
+                                    <th  style="text-align:center;" width="30%">Patient Contact</th>
+                                </tr>    
+                            </thead>
+                            <tbody style="max-height:300px;">
+                            <!-- apply filter left -->
+                            <!-- ng-click="setSelected(patient)" -->
+                                <tr ng-repeat = "patient in patients" style="height:2px;cursor: pointer;" class='clickable-row' ui-sref="app.billing.newbill({id: patient.id})" > 
+                                    <td width="30%" >{{ patient.id }}</td>
+                                    <td width="40%">{{ patient.name }}</td>
+                                    <td width="30%">{{ patient.contact }}</td>
+                                </tr>    
+                                <!-- <a ui-sref="#" ng-model=""> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </form>                     
+            </div>
+         </div>
+    </div>
+</div>

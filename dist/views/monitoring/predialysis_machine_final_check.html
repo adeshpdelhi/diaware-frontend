@@ -1,0 +1,100 @@
+<form class="form-horizontal" role="form">
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Machine Test Passed?</label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="machine_test_passed" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="machine_test_passed" value="no">No</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Checked By: </label>                        
+	<div class="col-sm-8">
+		<input required type="text" class="form-control" id="checked_by" name="checked_by">
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Air Detector/Line Clamp</label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="air_detector_or_line_clamp" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="air_detector_or_line_clamp" value="no">No</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Alarm Limits</label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="alarm_limits" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="alarm_limits" value="no">No</label>
+	</div>
+</div>
+
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Dialyzate Flow Rate</label>
+	 <div class="col-sm-8">
+		<select name="dialyzate_flow_rate" required class="form-control">
+			<option disabled value="" selected></option>
+			<option value="300">300 ml/min</option>
+			<option value="500">500 ml/min</option>
+			<option value="800">800 ml/min</option>
+		</select>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Dialysate Counter Current Flow</label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="dialysate_counter_current_flow" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="dialysate_counter_current_flow" value="no">No</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Dialyzate Temperature</label>
+	 <div class="col-sm-8">
+		<select name="dialyzate_temperature" required class="form-control">
+			<option disabled value="" selected></option>
+			<option value="35">35 &deg;C</option>
+			<option value="35.5">35.5 &deg;C</option>
+			<option value="36">36 &deg;C</option>
+			<option value="36.5">36.5 &deg;C</option>
+			<option value="37">37 &deg;C</option>
+		</select>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Conductivity</label>
+	 <div class="col-sm-8">
+		<select name="conductivity" required class="form-control">
+			<option disabled value="" selected></option>
+			<option value="13.8">13.8 mS/cm</option>
+			<option value="13.9">13.9 mS/cm</option>
+			<option value="14">14 mS/cm</option>
+			<option value="14.1">14.1 mS/cm</option>
+			<option value="14.2">14.2 mS/cm</option>
+			<option value="14.3">14.3 mS/cm</option>
+		</select>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">A Concentrate</label>
+	 <div class="col-sm-8">
+		<select name="a_concentrate" required class="form-control">
+			<option disabled value="" selected></option>
+			<option value="ca28k19na20">Ca28%, K19%,Na20%</option>
+			<option value="ca20k0na22">Ca20%, K0%, Na22%</option>
+			<option value="ca21k10na3">Ca21%, K10%, NA3%</option>
+		</select>
+	</div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</div>
+</form>
