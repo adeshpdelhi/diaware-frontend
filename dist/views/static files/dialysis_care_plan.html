@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    <title>Dialysis Care Plan</title>
+        <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
+
+
+</head>
+
+<body style= "background-color:#000000;">
+
+<div class="row row-content">
+     <div id="Registerbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title"><b>Dialysis Care Plan</b></div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body bg-warning" >
+           
+            
+                
+                 <form class="form-horizontal" role="form">
+                     
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Name</label>                        
+                        <div class="col-sm-8">
+                            <input required type="text" class="form-control" id="name" name="name" placeholder="" >
+                        </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">ID</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="id" name="id" placeholder="">
+                        </div>
+                    </div>
+                     
+                     
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Prescription Date</label>
+                        <div class="col-sm-8">
+                            <input required type="date" class="form-control" id="prescription_date" name="prescription_date" placeholder="Presciption Date">
+                        </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Prescribed Dry weight</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="prescribed_dry_weight" name="prescribed_dry_weight" placeholder="Enter Dry Weight ">
+                        </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Dialysis Duration(First Time) (Hrs)</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="dialysis_duration_first_time" name="dialysis_duration_first_time" placeholder="Enter Dialysis Duration ">
+                        </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Dialysis Duration(Regular)</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="dialysis_duration_regular" name="dialysis_duration_regular" placeholder="Enter Dry Weight ">
+                        </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Blood Flow Rate</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="blood_flow_rate" name="blood_flow_rate" placeholder="Blood Flow Rate">
+                        </div>
+                    </div>
+                     
+					 
+                     
+         
+                     
+                     
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Dialyzate Flow Rate</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="dialyzate_flow_rate" name="dialyzate_flow_rate" placeholder="Dialysis FLow Rate">
+                        </div>
+                    </div>
+					
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Ultrafiltration Rate</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="ultrafiltration_rate" name="ultrafiltration_rate" placeholder="Ultrafiltration Rate">
+                        </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label  class="col-sm-3 control-label">Heparin Free</label>
+                         <div class="col-sm-8 ">
+                            <select name="heparin_free" required class="form-control">
+                                <option value="" selected disabled>-</option>
+                                <option value="yes">Yes</option>
+                                <option value="no" >No</option>
+                            </select>
+                        </div>
+                    </div>
+                     
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Heparin Dosage</label>
+                        <div class="col-sm-8">
+                            <input required type="text" class="form-control" id="heparin_dosage" name="Heparin Dosage" placeholder="heparin_dosage">
+                        </div>
+                    </div>
+                     
+					
+					<div class="form-group">
+                        <label  class="col-sm-3 control-label">Dilaysate Type</label>
+                         <div class="col-sm-8 ">
+                            <select name="dilaysate_type" required class="form-control">
+                                <option value="" selected disabled>-</option>
+                                <option value="type1">type1</option>
+                                <option value="type2" >type2</option>
+                            </select>
+                        </div>
+                    </div>
+					
+					
+					
+					
+					
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Dialysate Temperature</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="dialysate_temperature" name="dialysate_temperature" placeholder="Dialysate Temperature">
+                        </div>
+                    </div>
+					
+					
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Dialyzate Frequency per Week</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="dialyzate_frequency_per_week" name="dialyzate_frequency_per_week" placeholder="Dialyzate Frequency">
+                        </div>
+                    </div>
+                     
+                     
+                    
+                
+            
+                
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 control-label">Access to be used</label>
+                        <div class="col-sm-8">
+                            <input required type="text" class="form-control" id="access_to_be_used" name="access_to_be_used" placeholder="Access Used">
+                        </div>
+                    </div>
+                     
+                     
+                     
+                   
+                     
+            
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-10">
+                            <button id="dialysis_care_plan_save" type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                
+               </form>
+                </div>
+         </div>
+    </div>
+    
+                
+                
+    </div>
+    </body>
+</html>

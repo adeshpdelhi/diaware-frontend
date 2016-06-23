@@ -1,0 +1,193 @@
+<form class="form-horizontal" role="form">
+<div class="row">
+	<div class="form-group col-sm-4">
+		<label class="col-sm-6 control-label">Pre HD Weight</label>                        
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="pre_hd_weight" name="pre_hd_weight">
+		</div>
+	</div>
+	<div class="form-group col-sm-4">
+		<label class="col-sm-6 control-label">Pre HD Weight</label>                        
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="pre_hd_weight" name="pre_hd_weight">
+		</div>
+	</div>
+	<div class="form-group col-sm-4">
+		<label class="col-sm-6 control-label">Pre HD Weight</label>                        
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="pre_hd_weight" name="pre_hd_weight">
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-group col-sm-4">
+		<label class="col-sm-6 control-label">Post weight at last HD</label>                        
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="post_weight_at_last_hd" name="post_weight_at_last_hd">
+		</div>
+	</div>
+	<div class="form-group col-sm-4">
+		<label class="col-sm-6 control-label">Dry Weight </label>                        
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="dry_weight" name="dry_weight">
+		</div>
+	</div>
+	<div class="form-group col-sm-4">
+		<label class="col-sm-6 control-label">Post Weight</label>                        
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="post_weight" name="post_weight">
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-group col-sm-4">
+		<label class="col-sm-6 control-label">Weight Gain</label>                        
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="weight_gain" name="weight_gain">
+		</div>
+	</div>
+	<div class="form-group col-sm-4">
+		<label class="col-sm-6 control-label">Target Weight Loss</label>                        
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="target_weight_loss" name="target_weight_loss">
+		</div>
+	</div>
+	<div class="form-group col-sm-4">
+		<label class="col-sm-6 control-label">Actual weight loss</label>                        
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="actual_weight_loss" name="actual_weight_loss">
+		</div>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Physical/chest pain or discomfort</label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="physical_chest_pain_or_discomfort" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="physical_chest_pain_or_discomfort" value="no">No</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Chest Auscultation – clear</label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="chest_auscultation_clear" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="chest_auscultation_clear" value="no">No</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Recent Surgery/Injury/Trauma/Bleeding </label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="recent_surgery_injury_trauma_bleeding" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="recent_surgery_injury_trauma_bleeding" value="no">No</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Peripheral Oedema</label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="peripheral_oedema" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="peripheral_oedema" value="no">No</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Respiratory Status</label>
+	<div class="col-sm-8">
+			<input type="text" class="form-control" id="respiratory_status" name="respiratory_status">
+		</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Body Temperature</label>
+	<div class="col-sm-8">
+			<input type="number" class="form-control" id="body_temperature" name="body_temperature">
+		</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Pulse</label>
+	<div class="col-sm-8">
+			<input type="number" class="form-control" id="pule" name="pulse">
+		</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">BP (siting)</label>
+	<div class="col-sm-8" >
+		<select id="bp_sitting" name="bp_sitting">                    
+			<option ng-repeat="n in [].constructor(51) track by $index"  >{{5*$index}}</option>
+		</select>
+	</div>
+</div>
+ 
+
+<div class="form-group row">
+	<label class="col-sm-3 control-label">BP (standing)</label>
+	 <div class="col-sm-8" >
+		<select id="bp_standing" name="bp_standing">                    
+			<option ng-repeat="n in [].constructor(51) track by $index"  >{{5*$index}}</option>
+		</select>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Breakfast/Lunch/Dinner</label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="breakfast_lunch_dinner" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="breakfast_lunch_dinner" value="no">No</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Patients subjective Statement</label>
+	<div class="col-sm-8">
+			<input type="text" class="form-control" id="patients_subjective_statement" name="patients_subjective_statement">
+		</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Interdialytic Complaints</label>
+	<div class="col-sm-8">
+		<label class="radio-inline">
+		<input type="radio" name="interdialytic_complaints" value="yes">Yes</label>
+		<label class="radio-inline">
+		<input type="radio" name="interdialytic_complaints" value="no">No</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Ambulatory Status</label>
+	<div class="col-sm-8">
+			<input type="text" class="form-control" id="ambulatory_status" name="ambulatory_status">
+		</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">Adverse Incident</label>
+	<div class="col-sm-8">
+        <label class="checkbox-inline"><input type="checkbox" name="hypotension" value="hypotension">Hypotension</label>
+        <label class="checkbox-inline"><input type="checkbox" name="headache" value="headache">Headache</label>
+        <label class="checkbox-inline"><input type="checkbox" name="cramps" value="cramps">Cramps</label>
+        <label class="checkbox-inline"><input type="checkbox" name="vomiting" value="vomiting">Vomiting</label>
+        <label class="checkbox-inline"><input type="checkbox" name="fever" value="fever">Fever</label>
+        <label class="checkbox-inline"><input type="checkbox" name="rigor" value="rigor">Rigor</label>
+        <label class="checkbox-inline"><input type="checkbox" name="rash" value="rash">Rash</label>
+        <label class="checkbox-inline"><input type="checkbox" name="chest_pain" value="chest_pain">Chest Pain</label>
+        <label class="checkbox-inline"><input type="checkbox" name="other_pain" value="other_pain">Other Pain</label>
+        <label class="checkbox-inline"><input type="checkbox" name="dyspnea" value="dyspnea">Dyspnea</label>
+        <label class="checkbox-inline"><input type="checkbox" name="pruritus" value="pruritus">Pruritus</label>	
+	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-3 control-label">General Comments</label>
+	<div class="col-sm-8">
+			<input type="text" class="form-control" id="general_comments" name="general_comments">
+		</div>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</div>
+</form>

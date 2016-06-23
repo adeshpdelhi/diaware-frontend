@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    <title>Register</title>
+        <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
+
+
+</head>
+
+<body style= "background-color:#000000;">
+
+<div class="row row-content">
+     <div id="Registerbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title"><b>Register Patient</b></div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body bg-warning" >
+           
+            
+                
+                 <form class="form-horizontal" role="form">
+                     
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Name</label>                        
+                        <div class="col-sm-8">
+                            <input required type="text" class="form-control" id="name" name="name" placeholder="Enter Name" >
+                        </div>
+                    </div>
+                     
+                     
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">DOB</label>
+                        <div class="col-sm-8">
+                            <input required type="text" class="form-control" id="dob" name="dob" placeholder="Enter DOB">
+                        </div>
+                    </div>
+                     
+                     
+                     <div class="form-group">
+                        <label  class="col-sm-3 control-label">Gender</label>
+                         <div class="col-sm-8 ">
+                            <select name="gender" required class="form-control">
+                                <option value="" selected disabled>-</option>
+                                <option value="male">Male</option>
+                                <option value="female" >Female</option>
+                            </select>
+                        </div>
+                    </div>
+                     
+                     
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">ID Number</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="id" name="id" placeholder="Enter ID ">
+                        </div>
+                    </div>
+                     
+                     
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Marrital Status</label>
+                         <div class="col-sm-8">
+                            <select name="marital_status" class="form-control">
+                                <option value="" selected disabled>-</option>
+                                <option value="married" >Married</option>
+                                <option value="unmarried" >Unmarried</option>
+                            </select>
+                        </div>
+                    </div>
+                
+            
+                
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 control-label">Home Telephone No</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="home_telephone_no" name="home_telephone_no" placeholder="Tel. number">
+                        </div>
+                    </div>
+                     
+                     
+                     
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 control-label">Mobile No</label>
+                        <div class="col-sm-8">
+                            <input required type="number" class="form-control" id="mobile_no" name="mobile_no" placeholder="Mobile number">
+                        </div>
+                    </div>
+                     
+                     
+                     <div class="form-group">
+                        <label  class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-8">
+                            <textarea required class="form-control" id="address" name="address" rows="4"></textarea>
+                        </div>
+                    </div>
+                     
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Referred By</label>                        
+                        <div class="col-sm-8">
+                            <input required type="text" class="form-control" id="referred_by" name="relations" placeholder="Doctor name">
+                        </div>
+                    </div>
+                     
+                     
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Next of Kin</label>                        
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="next_of_kin" name="next_of_kin" placeholder="Next of kin">
+                        </div>
+                    </div>
+                     
+                     
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Relationship</label>                        
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="relationship" name="relationship" placeholder="Relationship">
+                        </div>
+                    </div>
+                     
+                     
+                     <div class="form-group">
+                        <label  class="col-xs-12 col-sm-3 control-label">Mobile No</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="kin_mobile_no" name="kin_mobile_no" placeholder="Mobile number">
+                        </div>
+                     </div>
+                     
+                     
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Care Giver</label>                        
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="care_giver" name="care_giver" placeholder="Care giver">
+                        </div>
+                    </div>
+                     
+                     
+                     <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 control-label">Mobile No</label>
+                        <div class="col-sm-8 ">
+                            <input type="number" class="form-control" id="care_giver_mobile_no" name="care_giver_mobile_no" placeholder="Mobile number">
+                        </div>
+                     </div>
+                     
+                     
+                     <div class="form-group">
+                         
+                        <label class="col-sm-3 control-label">Children (Yes/No)</label>                       
+                        <div class="col-sm-3 ">
+                            <select name="children" required class="form-control">
+                                <option value="" selected disabled>-</option>
+                                <option value="yes" >Yes</option>
+                                <option value="no" >No</option>
+                            </select>
+                        </div>
+                         
+                        <label class="col-xs-12 col-sm-2 control-label">Number</label>
+                        <div class="col-xs-1 col-sm-1 col-md-3">
+                            <input type="number" class="form-control" id="no_of_children" name="no_of_children" >
+                        </div>
+                         
+                    </div>
+                     
+                     <div class="form-group">
+                        <label  class="col-xs-12 col-sm-3 control-label">Mobile No</label>
+                        <div class="col-sm-8 ">
+                            <input type="mobile" class="form-control" id="children_mobile_no" name="children_mobile_no" placeholder="Children Mobile number">
+                        </div>
+                     </div>
+                     
+                     
+                     
+                     
+                     
+                     
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Blood Group</label>               
+                        <div class="col-sm-8 ">
+                            <select name="blood_group" required class="form-control">
+                                <option value="" selected disabled>-</option>
+                                <option value="A+" >A+</option>
+                                <option value="A-" >A-</option>
+                                  <option value="B+" >B+</option>
+                                <option value="B-" >B-</option>
+                                  <option value="AB+" >AB+</option>
+                                    <option value="AB-" >AB-</option>
+
+                                <option value="O-">O-</option>
+                                <option value="O+">O+</option>
+
+                            </select>
+                        </div>
+                     </div>
+                     
+                     <div class="form-group">
+                         
+                        <label class="col-sm-3 control-label">Transplant Waiting List</label>                       
+                        <div class="col-sm-8 ">
+                            <select required class="form-control">
+                                <option value="" selected disabled>-</option>
+                                <option value="yes" >Yes</option>
+                                <option value="no" >No</option>
+                            </select>
+                        </div>
+                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Employement Status</label>                        
+                        <div class="col-sm-8">
+                            <input required type="text" class="form-control" id="employement_status" name="employement_status" placeholder="Employement Status">
+                        </div>
+                    </div>
+                     
+                     
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Office No</label>                        
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="office_no" name="office_no" placeholder="Office no">
+                        </div>
+                    </div>
+
+                     
+                     
+                    <div class="form-group">
+                        <label  class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="office_address" name="office_address" rows="3"></textarea>
+                        </div>
+                    </div>
+                     
+                         
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Viral Market Status</label>                        
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="viral_market_status" name="viral_market_status" placeholder="Viral Market Status">
+                        </div>
+                    </div>
+                     
+                     
+                     <div class="form-group">
+                        <label  class="col-sm-2 control-label">Person to be contacted in case of Emergency</label>  
+                        <label  class="col-sm-1 control-label">Name</label>                        
+                        <div class="col-sm-4">
+                            <input required type="text" class="form-control" id="emergency_name" name="emergency_name" placeholder="Name">
+                        </div>
+                         
+                        <label class="col-xs-12 col-sm-1 control-label">Mobile No</label>
+                        <div class="col-sm-4 ">
+                            <input required type="mobile" class="form-control" id="emergency_mobile_no" name="emergency_mobile_no" placeholder="Mobile number">
+                        </div>
+                    
+                     </div>
+                     
+            
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-10">
+                            <button id="register" type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                
+               </form>
+                </div>
+         </div>
+    </div>
+    
+                
+                
+    </div>
+    </body>
+</html>
