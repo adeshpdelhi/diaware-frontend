@@ -30,8 +30,10 @@ angular.module('App')
   };
   patFac.getChosenPatient = function(){
     return patient;
-  }
+  };
+  return patFac;
 }])
+
 .factory('authorize', ['$localStorage', function ($localStorage) {
   var logged_in_user = $localStorage.get('username','');
   var logged_in = false;

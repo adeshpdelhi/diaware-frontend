@@ -162,6 +162,6 @@ angular.module('App')
         }
         var pats= patientFactory.getPatients();
         $scope.patients = patientFactory.getPatients();
-        choosePatientFactory.setPatient(patient.id);
+        choosePatientFactory.setPatient($scope.patient.id);
     }])
 ;
