@@ -166,4 +166,10 @@ angular.module('App')
         	$state.go('app.'+callback);
         }
     }])
+
+ .controller('ViewRegistrationController',['$scope','patientFactory','choosePatientFactory', function($scope, patientFactory, choosePatientFactory){
+       
+        $scope.patient = patientFactory.getPatient(choosePatientFactory.getChosenPatient().id);
+        console.log($scope.patient);
+    }])
 ;

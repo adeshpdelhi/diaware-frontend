@@ -13,7 +13,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                     },
                     'content': {
                         template:"<h1>hey</h1>",
-                        controller  : 'HomeManagementController'                  
+                        controller  : 'HomeManagementController'
                     },
                     'footer': {
                         templateUrl : 'views/footer.html'
@@ -26,7 +26,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 views: {
                     'content@': {
                         templateUrl : 'views/login.html',
-                        controller  : 'LoginController'                  
+                        controller  : 'LoginController'        
                     }
                 }
 
@@ -35,7 +35,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 url:'home',
                 views: {
                     'content@': {
-                        templateUrl : 'views/home.html'                
+                        templateUrl : 'views/home.html'           
                     }
                 }
 
@@ -45,7 +45,28 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 url:'registration',
                 views: {
                     'content@': {
-                        templateUrl : 'views/registration/register.html'  
+                        templateUrl : 'views/registration/home.html'
+                    }
+                }
+
+            })
+
+            .state('app.registration.new', {
+                url:'registration',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/registration/newregister.html'
+                    }
+                }
+
+            })
+
+            .state('app.registration.view', {
+                url:'registration',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/registration/viewregister.html',
+                        controller : 'ViewRegistrationController'
                     }
                 }
 
@@ -55,7 +76,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 url:'monitoring',
                 views: {
                     'content@': {
-                        templateUrl : 'views/monitoring/monitoringchart.html'  
+                        templateUrl : 'views/monitoring/monitoringchart.html'
                     }
                 }
 
@@ -80,7 +101,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
             }
         })
         .state('app.billing.newbill',{
-            url:'newbill/:id',
+            url:'newbill',
             views:{
                 'content@':{
                     templateUrl:'views/billing/newbill.html',
