@@ -3,7 +3,6 @@
 angular.module('App', ['ui.router','ngResource','ngDialog'])
 .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-        
             // route for the home page
             .state('app', {
                 url:'/',
@@ -13,6 +12,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                         controller : 'HeaderController'
                     },
                     'content': {
+                        template:"<h1>hey</h1>",
                         controller  : 'HomeManagementController'                  
                     },
                     'footer': {
@@ -60,27 +60,22 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 }
 
             })
-        //     .state('app',{
-        //     url:'/',
-        //         views:{
-        //         'header':{
-        //             templateUrl:'views/header.html'
-        //         },
-        //         'content':{
-        //             templateUrl:'views/home.html',
-        //             controller:'IndexController'
-        //         },
-        //         'footer':{
-        //              templateUrl:'views/footer.html'
-        //         }
-        //     }
-        // })
+        
         .state('app.billing',{
             url:"billing",
             views:{
                 'content@':{
                     templateUrl:'views/billing/home.html',
                     controller:'BillingHomeController'
+                }
+            }
+        })
+        .state('app.billing.choosePatient',{
+            url:'billing/choosePatient',
+            views:{
+                'content@':{
+                    templateUrl:'views/billing/choosePatient.html',
+                    controller:'ChoosePatientController'
                 }
             }
         })
@@ -102,16 +97,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 }
             }
         })
-        .state('app.billing.choosePatient',{
-            url:'billing/choosePatient',
-            views:{
-                'content@':{
-                    templateUrl:'views/billing/choosePatient.html',
-                    controller:'ChoosePatientController'
-                }
-            }
-        });
-            ;
+        ;
         $urlRouterProvider.otherwise('/');
     })
 ;
