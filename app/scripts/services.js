@@ -25,7 +25,7 @@ angular.module('App')
 .factory('authorize', ['$localStorage', function ($localStorage) {
   var logged_in_user = $localStorage.get('username','');
   var logged_in = false;
-  if(logged_in_user!=''){
+  if(logged_in_user !== ''){
     logged_in = true;
   }
     var users =  [
@@ -82,17 +82,17 @@ angular.module('App')
         name:"rishabh",
         contact:8765432109
       }
-    ]
+    ];
     this.getPatients = function(){
       return patients;
-    }
+    };
     this.getPatient = function(id){
       for (var i = patients.length - 1; i >= 0; i--) {
         if(patients[i].id == id) 
           return patients[i]; 
       }
       return null;
-    }
+    };
   })
 // use factory/service to interact with the database n inject that in controller
 
@@ -192,7 +192,7 @@ angular.module('App')
       return dialysisTypes;
     };
     drpDwnFac.getProcedures = function(){
-      return proceTypes
+      return proceTypes;
     };
     drpDwnFac.getPharmacy = function(){
       return pharmacyTypes;
@@ -202,13 +202,13 @@ angular.module('App')
     };
     drpDwnFac.getPanels = function(){
       return panels;
-    }
+    };
     drpDwnFac.getTransactionTypes = function(){
       return transactionTypes;
-    }
+    };
     drpDwnFac.updateBills = function(bill){
-      bills = bills.concat(bill)
-    }
+      bills = bills.concat(bill);
+    };
     return drpDwnFac;
   })
   .service('newBillFactory',['$resource', function($resource){

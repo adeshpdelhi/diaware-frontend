@@ -62,7 +62,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
             })
         
         .state('app.billing',{
-            url:"billing",
+            url:"billing/",
             views:{
                 'content@':{
                     templateUrl:'views/billing/home.html',
@@ -71,7 +71,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
             }
         })
         .state('app.billing.choosePatient',{
-            url:'billing/choosePatient',
+            url:'choosePatient',
             views:{
                 'content@':{
                     templateUrl:'views/billing/choosePatient.html',
@@ -80,7 +80,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
             }
         })
         .state('app.billing.newbill',{
-            url:'billing/:id',
+            url:'newbill/:id',
             views:{
                 'content@':{
                     templateUrl:'views/billing/newbill.html',
@@ -89,7 +89,7 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
             }
         })
         .state('app.billing.viewbill',{
-            url:'billing/viewbill',
+            url:'viewbill',
             views:{
                 'content@':{
                     templateUrl:'views/billing/viewbill.html',
