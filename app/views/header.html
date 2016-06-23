@@ -16,7 +16,7 @@
                 <li ng-class="{active: stateis('app.registration')}"><a ui-sref="app.registration">
                     <span class="glyphicon glyphicon-user"
                      aria-hidden="true"></span> Registration</a></li>
-                <li ng-class="{active: stateis('app.monitoring')}"><a ui-sref="app.monitoring">
+                <li ng-class="{active: stateis('app.monitoring')}"><a ui-sref="app.choosePatient({callback:'monitoring'})">
                     <span class="glyphicon glyphicon-list-alt"
                      aria-hidden="true"></span> Monitoring Chart</a></li>
                 <li ng-class="{active: stateis('app.billing')}"><a ui-sref="app.billing">

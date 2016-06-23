@@ -68,6 +68,7 @@ angular.module('App')
         return logged_in_user;
       },
       isLoggedIn : function(){
+        console.log("Logged in: "+logged_in);
         return logged_in;
       },
       logout : function(){
