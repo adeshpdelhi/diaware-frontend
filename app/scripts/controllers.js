@@ -13,11 +13,11 @@ angular.module('App')
             for(var i = 0; i<tempcentres.length; i++ ){
                 $scope.channels.push({value: tempcentres[i], label: tempcentres[i]});
             }
-            $scope.credentials.centres;
             $scope.display_centre=true;
         }
     };
     $scope.chooseCentre = function(){
+        authorize.setCentre($scope.credentials.centre);
         $state.go('app.home');
     };
 
@@ -36,6 +36,7 @@ angular.module('App')
     };
     $scope.loggedIn = authorize.isLoggedIn();
     $scope.username = authorize.getUsername();
+    $scope.username = authorize.getCentre();
     $scope.logout = function(){
         authorize.logout();
         $state.go('app');
