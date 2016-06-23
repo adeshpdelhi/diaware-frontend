@@ -71,6 +71,17 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 }
 
             })
+			
+			.state('app.dialysis_care_plan', {
+                url:'dialysis_care_plan',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/dialysis_care_plan/dialysis_care_plan.html',
+                        controller  : 'DialysisCarePlanController'        
+                    }
+                }
+
+            })
 
             .state('app.monitoring', {
                 url:'monitoring',

@@ -35,6 +35,7 @@ angular.module('App')
 }])
 
 .factory('authorize', ['$localStorage', function ($localStorage) {
+	
   var logged_in_user = $localStorage.get('username','');
   var logged_in_centre = $localStorage.get('centre','');
   var logged_in = false;

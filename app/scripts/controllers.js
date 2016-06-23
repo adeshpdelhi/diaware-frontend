@@ -210,4 +210,9 @@ angular.module('App')
        
         $scope.patient = patientFactory.getPatient(choosePatientFactory.getChosenPatient().id);
     }])
+	
+	.controller('DialysisCarePlanController',['$scope','patientFactory','choosePatientFactory', function($scope, patientFactory, choosePatientFactory){
+       
+        $scope.patient = patientFactory.getPatient(choosePatientFactory.getChosenPatient().id);
+    }])
 ;
