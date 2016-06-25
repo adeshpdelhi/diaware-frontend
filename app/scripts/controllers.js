@@ -33,7 +33,7 @@ angular.module('App')
 
 .controller('HeaderController', ['$scope', '$state', 'authorize', function ($scope, $state, authorize) {
     $scope.stateis = function(curstate) {
-       return $state.is(curstate);  
+       return $state.includes(curstate);  
     };
     $scope.loggedIn = authorize.isLoggedIn();
     $scope.username = authorize.getUsername();
