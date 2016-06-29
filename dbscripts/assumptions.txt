@@ -6,3 +6,4 @@ add trigger for age
 number is never written as no
 
 bedType is IPD/ICU/OPD
+spelling is dialysate. note the s and not z

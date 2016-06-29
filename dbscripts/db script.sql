@@ -124,7 +124,7 @@ create table bills(
 	transactionId int AUTO_INCREMENT PRIMARY KEY,
 	bedType varchar(20),
 	transactionType varchar(50),
-	ledger varchar(50),
+	ledger varchar(50),  --ledger is the main item/service purchased
 	quantity int,
 	-- charges decimal,
 	discount decimal,
@@ -155,6 +155,36 @@ create table costSheet(
 
 create table transactionType(
 	type varchar(50) PRIMARY KEY
+);
+
+create table monitoringChart(
+	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	monitoringId bigint AUTO_INCREMENT PRIMARY KEY,
+	monitoringdate date,
+	machineNumber int,
+	bedNumber int,
+	leadTechnicianName varchar(50),
+	prescribedDuration int, --hours/minutes
+	startTime varchar(10),
+	endTime varchar(10),
+	accessUsed varchar(20),
+	centralLineCreated varchar(4) check(isCentralLineCreated=='Yes' || isCentralLineCreated == 'No'),
+	centralLine varchar(10),
+	anticoagulant varchar(4),
+	bolusAmount int,
+	hourlyHeparin int,
+	heparinStopBefore varchar(20),
+	NSFlushingFrequency varchar(20),
+	NSFlushingVolume int,
+	machineTestPassed varchar(4),
+	machineTestCheckedBy varchar(20),
+	airDetector varchar(4),
+	alarmLimits varchar(4),
+	dialysateFlowRate int,
+	dialysisCounterCurrentFlow varchar(4),
+	dialysateTemperature decimal,
+	conductivity varchar(20),
+	partAConcentrationCombination varchar(20)
 );
 
 -- create table dialysisType(
