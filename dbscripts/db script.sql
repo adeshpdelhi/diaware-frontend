@@ -90,7 +90,7 @@ create table dialysisCarePlan(
 	patientId varchar(50) references patientDetails(patientId) NOT NULL,
 	carePlanId  AUTO_INCREMENT,
 	prescriptionDate date,
-	dryWeight int,
+	dryWeight decimal,
 	dialysisDurationFirstTime int, --minutes/hours
 	dialysisDurationRegular int,
 	BFR int,
@@ -150,17 +150,17 @@ create table costSheet(
 	ledgerName varchar(50),
 	cost decimal,
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	lastModifiedBy varchar(50) NOT NULL,
+	lastModifiedBy varchar(50) NOT NULL
 );
 
 create table transactionType(
 	type varchar(50) PRIMARY KEY
 );
 
-create table monitoringChart(
+create table monitoringChartPre(
 	patientId varchar(50) references patientDetails(patientId) NOT NULL,
-	monitoringId bigint AUTO_INCREMENT PRIMARY KEY,
 	monitoringdate date,
+	monitoringId bigint PRIMARY KEY,
 	machineNumber int,
 	bedNumber int,
 	leadTechnicianName varchar(50),
@@ -184,7 +184,87 @@ create table monitoringChart(
 	dialysisCounterCurrentFlow varchar(4),
 	dialysateTemperature decimal,
 	conductivity varchar(20),
-	partAConcentrationCombination varchar(20)
+	partAConcentrationCombination varchar(20),
+
+	--verify this
+
+	--assessment
+
+	postWeight decimal,
+	weightGain decimal,
+	targetWeightLoss decimal,
+	actualWeightLoss decimal,
+	physicalPain varchar(4) check( physicalPain=='Yes' || physicalPain == 'No'),
+	chestAuscultation varchar(4) check(chestAuscultation =='Yes' || chestAuscultation == 'No'),
+	recentSurgery varchar(4) check (recentSurgery == 'Yes' || recentSurgery == 'No'),
+	peripheralOedema varchar(4) check(peripheralOedema == 'Yes' || peripheralOedema=='No'),
+	respiratoryStatus varchar(50),
+	bodyTemperature decimal,
+	pulse int,
+	BPSitting int,
+	BPStanding int,
+	breakfastLunchDinner varchar(4) check(breakfastLunchDinner=='Yes' || breakfastLunchDinner=='No'),
+	subjectiveStatement varchar(50),
+	interdialyticComplaints varchar(4) check(interdialyticComplaints=='Yes' || interdialyticComplaints=='No'),
+	ambulatoryStatus varchar(20),
+	hypotension varchar(4),
+	headache varchar(4),
+	cramps varchar(4),
+	vomiting varchar(4),
+	fever varchar(4),
+	rigor varchar(4),
+	rash varchar(4),
+	chest varchar(4),
+	pain varchar(4),
+	other varchar(4),
+	pain varchar(4),
+	dyspnea varchar(4),
+	pruritus varchar(4),
+	generalComments varchar(50),
+
+	--assessment over
+	--access assessment 
+
+	bruit varchar(10),
+	anyAbnormality varchar(50),
+	signOfAccessInfection varchar(4) check(signOfAccessInfection=='Yes' || signOfAccessInfection=='No'),
+	cannulation varchar(20),
+	centralLineStatus varchar(20),
+	commencedBy varchar(20),
+	assistedBy varchar(20),
+
+	--access assessment over
+	--verify this over .. thanks :D
+
+	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	lastModifiedBy varchar(50) NOT NULL,
+);
+
+create table monitoringChartIntra(
+	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	monitoringId bigint PRIMARY KEY,
+	entryNumber int,
+	entryTime varchar(10),
+	bp varchar(10),
+	pr varchar(10),
+	ap varchar(10),
+	vp varchar(10),
+	tmp varchar(10),
+	ufr varchar(10),
+	totalUF varchar(10),
+	bfr varchar(10),
+	ebf varchar(10),
+	remarks varchar(50),
+	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	lastModifiedBy varchar(50) NOT NULL,
+);
+
+create table monitoringChartPost(
+	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	monitoringId bigint AUTO_INCREMENT PRIMARY KEY,
+
+	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	lastModifiedBy varchar(50) NOT NULL,
 );
 
 -- create table dialysisType(
