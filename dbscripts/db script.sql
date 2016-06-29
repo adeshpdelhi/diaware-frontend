@@ -3,14 +3,14 @@ create table patientDetails(
 	name varchar(50),
 	age int,
 	DOB date,
-	gender char(1),
+	gender char(1) check (gender=='M' || gender == 'F'),
 	contact varchar(15),
 	alternativeContact  varchar(15),
 	location varchar(50),
 	address varchar(200),
 	bloodGroup varchar(3),
-	transplantWaitingList boolean,
-	maritalStatus boolean,
+	transplantWaitingList varchar(4) check (transplantWaitingList=='Yes' || transplantWaitingList == 'No'),
+	maritalStatus varchar(10) check (maritalStatus=='Married' || maritalStatus == 'Unmarried'),
 	emergencyContactName varchar(50),
 	emergencyContactRelationship varchar(50),
 	emergencyContactMobile varchar(10),
@@ -23,8 +23,8 @@ create table patientDetails(
 	modeOfPayment varchar(50),
 	refferedBy varchar(50),
 	doctorName varchar(50),
-	viralMarketStatus boolean,
-	centre varchar(20),
+	viralMarketStatus varchar(4) check (viralMarketStatus=='Yes' || viralMarketStatus == 'No'),
+	centreId varchar(20) references centres(centreId),
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL
 );
@@ -37,7 +37,9 @@ create table panelDetails(
 	panelId bigint references panels(panelId) NOT NULL,
 	patientId varchar(50) references patientDetails(patientId) NOT NULL,
 	panelPermissionDate date,
+	panelPermissionNumber varchar(50),
 	totalTmtsPermitted int,
+	totalTmtsRemaining int,
 	renewalDate date,
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
@@ -92,31 +94,84 @@ create table dialysisCarePlan(
 	dialysisDurationFirstTime int, --minutes/hours
 	dialysisDurationRegular int,
 	BFR int,
-	
+	DFR int,
+	UFR int,
+	heparinFree varchar(4) check (heparinFree=='Yes' || heparinFree == 'No'),
+	heparinDosageBolus int,
+	heparinDosageHourly int,
+	dialysateType varchar(20),
+	dialysateTemperature decimal,
+	dialysateFrequencyPerWeek int,
+	accessUsed varchar(20),
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL
 );
 
-create table dialysisCarePlan(
+create table vaccinationDetails(
 	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	diseaseName varchar(50),
+	dosage1 date,
+	dosage2 date,
+	dosage3 date,
+	dosage4 date,	
+	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	lastModifiedBy varchar(50) NOT NULL,
+	check(dosage1<=dosage2<=dosage3<=dosage4)
+);
 
+create table bills(
+	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	transactionId int AUTO_INCREMENT PRIMARY KEY,
+	bedType varchar(20),
+	transactionType varchar(50),
+	ledger varchar(50),
+	quantity int,
+	-- charges decimal,
+	discount decimal,
+	status varchar(20) NOT NULL check(status == 'Pending' || status== 'Paid'),
+	amount decimal NOT NULL,
+	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	lastModifiedBy varchar(50) NOT NULL
+);
+
+create table centres(
+	centreId varchar(20) NOT NULL PRIMARY KEY,
+	centreName varchar(50),
+	centreLocation varchar(50),
+	centreMaxPatients int
+);
+
+create table costSheet(
+	centreId varchar(20) references centres(centreId),
+	itemId int AUTO_INCREMENT PRIMARY KEY,
+	bedType varchar(20),
+	panelName varchar(50),
+	ledgerType varchar(20),
+	ledgerName varchar(50),
+	cost decimal,
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
 );
 
-create table dialysisCarePlan(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
-
-	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	lastModifiedBy varchar(50) NOT NULL,
+create table transactionType(
+	type varchar(50) PRIMARY KEY
 );
 
-create table dialysisCarePlan(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+-- create table dialysisType(
+-- 	ledger varchar(50) PRIMARY KEY
+-- );
 
-	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	lastModifiedBy varchar(50) NOT NULL,
-);
+-- create table procedureType(
+-- 	ledger varchar(50) PRIMARY KEY
+-- );
+
+-- create table consumableType(
+-- 	ledger varchar(50) PRIMARY KEY
+-- );	  --to insert append expiry and batch in the ledger.. Format: LedgerName-Batchno-Expiry
+
+-- create table pharmaType(
+-- 	ledger varchar(50) PRIMARY KEY
+-- );  --to insert append expiry and batch in the ledger.. Format: LedgerName-Batchno-Expiry
 
 create table dialysisCarePlan(
 	patientId varchar(50) references patientDetails(patientId) NOT NULL,

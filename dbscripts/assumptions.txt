@@ -4,3 +4,5 @@ tel numbr varchar(1),
 address  varchar(200)
 add trigger for age
 number is never written as no
+
+bedType is IPD/ICU/OPD
