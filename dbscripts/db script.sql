@@ -1,3 +1,7 @@
+CREATE DATABASE `diaware`;
+
+use diaware;
+
 create table patientDetails(
 	patientId varchar(50) NOT NULL PRIMARY KEY,
 	name varchar(50),
@@ -27,15 +31,15 @@ create table patientDetails(
 	centreId varchar(20) references centres(centreId),
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL
-);
+)
 create table panels(
 	panelId bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	panelName varchar(50),
 	panelDetails varchar(200)
-); --only admin manageable
+) --only admin manageable
 create table panelDetails(
 	panelId bigint references panels(panelId) NOT NULL,
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 	panelPermissionDate date,
 	panelPermissionNumber varchar(50),
 	totalTmtsPermitted int,
@@ -44,10 +48,10 @@ create table panelDetails(
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
 	PRIMARY KEY(panelId,patientId)
-);
+)
 
 create table otherDetails(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL PRIMARY KEY,
+	patientId varchar(50) NOT NULL references patientDetails(patientId) PRIMARY KEY,
 	PAN varchar(50),
 	aadhar varchar(50),
 	passport varchar(50)
@@ -62,32 +66,32 @@ create table otherDetails(
 	otherCard3Data BLOB,
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL
-);
+)
 create table diseases(
 	diseaseName varchar(100) NOT NULL PRIMARY KEY
-); --onyl admin manageable
+) --onyl admin manageable
 
 create table medicalHistory(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 	diseaseName varchar(100) references diseases(diseaseName),
 	doctorComments varchar(200),
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
 	PRIMARY KEY(patientId,diseaseName)
-);
+)
 
 create table majorClinicalEvents(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 	eventId bigint AUTO_INCREMENT PRIMARY KEY,
 	eventDetails varchar(200),
 	eventDate date,
 	eventComment varchar(100),
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL
-);
+)
 
 create table dialysisCarePlan(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 	carePlanId  AUTO_INCREMENT,
 	prescriptionDate date,
 	dryWeight decimal,
@@ -105,10 +109,10 @@ create table dialysisCarePlan(
 	accessUsed varchar(20),
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL
-);
+)
 
 create table vaccinationDetails(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 	diseaseName varchar(50),
 	dosage1 date,
 	dosage2 date,
@@ -117,10 +121,10 @@ create table vaccinationDetails(
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
 	check(dosage1<=dosage2<=dosage3<=dosage4)
-);
+)
 
 create table bills(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 	transactionId int AUTO_INCREMENT PRIMARY KEY,
 	bedType varchar(20),
 	transactionType varchar(50),
@@ -132,14 +136,14 @@ create table bills(
 	amount decimal NOT NULL,
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL
-);
+)
 
 create table centres(
 	centreId varchar(20) NOT NULL PRIMARY KEY,
 	centreName varchar(50),
 	centreLocation varchar(50),
 	centreMaxPatients int
-);
+)
 
 create table costSheet(
 	centreId varchar(20) references centres(centreId),
@@ -151,14 +155,14 @@ create table costSheet(
 	cost decimal,
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL
-);
+)
 
 create table transactionType(
 	type varchar(50) PRIMARY KEY
-);
+)
 
 create table monitoringChartPre(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 	monitoringdate date,
 	monitoringId bigint PRIMARY KEY,
 	machineNumber int,
@@ -238,10 +242,10 @@ create table monitoringChartPre(
 
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
-);
+)
 
 create table monitoringChartIntra(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 	monitoringId bigint PRIMARY KEY,
 	entryNumber int,
 	entryTime varchar(10),
@@ -257,10 +261,10 @@ create table monitoringChartIntra(
 	remarks varchar(50),
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
-);
+)
 
 create table monitoringChartPost(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 	monitoringId bigint AUTO_INCREMENT PRIMARY KEY,
 	postWeight decimal,
 	weightLoss decimal,
@@ -291,63 +295,63 @@ create table monitoringChartPost(
 
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
-);
+)
 
 -- create table dialysisType(
 -- 	ledger varchar(50) PRIMARY KEY
--- );
+-- )
 
 -- create table procedureType(
 -- 	ledger varchar(50) PRIMARY KEY
--- );
+-- )
 
 -- create table consumableType(
 -- 	ledger varchar(50) PRIMARY KEY
--- );	  --to insert append expiry and batch in the ledger.. Format: LedgerName-Batchno-Expiry
+-- )	  --to insert append expiry and batch in the ledger.. Format: LedgerName-Batchno-Expiry
 
 -- create table pharmaType(
 -- 	ledger varchar(50) PRIMARY KEY
--- );  --to insert append expiry and batch in the ledger.. Format: LedgerName-Batchno-Expiry
+-- )  --to insert append expiry and batch in the ledger.. Format: LedgerName-Batchno-Expiry
 
 create table dialysisCarePlan(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
-);
+)
 
 create table dialysisCarePlan(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
-);
+)
 
 create table dialysisCarePlan(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
-);
+)
 
 create table dialysisCarePlan(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
-);
+)
 
 create table dialysisCarePlan(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
-);
+)
 
 create table dialysisCarePlan(
-	patientId varchar(50) references patientDetails(patientId) NOT NULL,
+	patientId varchar(50) NOT NULL references patientDetails(patientId),
 
 	lastModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	lastModifiedBy varchar(50) NOT NULL,
-);
+)
 

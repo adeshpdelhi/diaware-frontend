@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('App', ['ui.router','ngResource','ngDialog'])
+angular.module('App', ['ui.router','ngResource','ngDialog','ui.bootstrap'])
 .config(function($stateProvider, $urlRouterProvider) {
-        $stateProvider
+    $stateProvider
             // route for the home page
             .state('app', {
                 url:'/',
@@ -71,8 +71,8 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
                 }
 
             })
-			
-			.state('app.dialysis_care_plan', {
+
+            .state('app.dialysis_care_plan', {
                 url:'dialysis_care_plan',
                 views: {
                     'content@': {
@@ -84,53 +84,67 @@ angular.module('App', ['ui.router','ngResource','ngDialog'])
             })
 
             .state('app.monitoring', {
-                url:'monitoring',
+                url:'monitoring/',
+            })
+
+            .state('app.monitoring.new', {
+                url:'new',
                 views: {
                     'content@': {
-                        templateUrl : 'views/monitoring/monitoringchart.html',
+                        templateUrl : 'views/monitoring/newmonitoringchart.html',
                         controller : 'MonitoringController'
                     }
                 }
 
             })
-        
-        .state('app.billing',{
-            url:"billing/",
-            views:{
-                'content@':{
-                    templateUrl:'views/billing/home.html',
-                    controller:'BillingHomeController'
+
+            .state('app.monitoring.view', {
+                url:'view',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/monitoring/viewmonitoringchart.html',
+                        controller : 'MonitoringController'
+                    }
                 }
-            }
-        })
-        .state('app.choosePatient',{
-            url:'choosePatient/:callback',
-            views:{
-                'content@':{
-                    templateUrl:'views/choosePatient.html',
-                    controller:'ChoosePatientController'
+
+            })
+            .state('app.billing',{
+                url:"billing/",
+                views:{
+                    'content@':{
+                        templateUrl:'views/billing/home.html',
+                        controller:'BillingHomeController'
+                    }
                 }
-            }
-        })
-        .state('app.billing.newbill',{
-            url:'newbill',
-            views:{
-                'content@':{
-                    templateUrl:'views/billing/newbill.html',
-                    controller:'NewBillController'
+            })
+            .state('app.choosePatient',{
+                url:'choosePatient/:callback',
+                views:{
+                    'content@':{
+                        templateUrl:'views/choosePatient.html',
+                        controller:'ChoosePatientController'
+                    }
                 }
-            }
-        })
-        .state('app.billing.viewbill',{
-            url:'viewbill',
-            views:{
-                'content@':{
-                    templateUrl:'views/billing/viewbill.html',
-                    controller:'ViewBillController'
+            })
+            .state('app.billing.newbill',{
+                url:'newbill',
+                views:{
+                    'content@':{
+                        templateUrl:'views/billing/newbill.html',
+                        controller:'NewBillController'
+                    }
                 }
-            }
+            })
+            .state('app.billing.viewbill',{
+                url:'viewbill',
+                views:{
+                    'content@':{
+                        templateUrl:'views/billing/viewbill.html',
+                        controller:'ViewBillController'
+                    }
+                }
+            })
+            ;
+            $urlRouterProvider.otherwise('/');
         })
-        ;
-        $urlRouterProvider.otherwise('/');
-    })
 ;
